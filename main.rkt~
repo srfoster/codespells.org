@@ -1,0 +1,12 @@
+#lang racket
+
+(require webapp/js)
+
+(define (codespells.org)
+  (list
+    (bootstrap-files)
+    (page index.html
+	  (content
+	    (h1 "hi")))))
+
+(render #:to "out" (codespells.org))
