@@ -3,7 +3,8 @@
 (define deps '("base"
 	       "webapp"
 	       "reprovide-lang"
-	       "gregor"))
+	       "gregor"
+	       "aws"))
 (define pkg-desc "Description Here")
 (define version "0.0")
 (define pkg-authors '(thoughtstem))

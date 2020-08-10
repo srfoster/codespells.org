@@ -5,7 +5,8 @@
   side-note
   link-to-patreon
   link-to-mailing-list
-  link-to-steam)
+  link-to-steam
+  slugify)
 
 (require webapp/js 
 	 website/bootstrap/font-awesome
@@ -92,3 +93,10 @@
      main
      content))
 
+
+(define (slugify s)
+  (string-downcase
+    (regexp-replaces
+      (~a s)
+      '([#rx"[^A-Za-z0-9 ]" ""]
+	[#rx"[ ]+" "-"]))))

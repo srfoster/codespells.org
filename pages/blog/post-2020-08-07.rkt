@@ -2,25 +2,12 @@
 
 (require "./lang.rkt")
 
-(define (image-grid . img+captions)
-  (define (cardify img+caption)
-    (col-4
-      (card
-	class: "pt-1"
-	((car img+caption) class: "card-img-top")
-	(card-body
-	  (cdr img+caption)))))
-  (list
-    (hr)
-    (row
-      (map cardify img+captions))
-    (hr)))
 
 (define-post 
   2020-08-07
   "The CodeSpells Story (with Pictures!)"
   @div{
-    The CodeSpells story began more than 10 years ago.  Here's what happened. 
+    The CodeSpells story began more than 10 years ago.  What happened?  And what's coming? 
   }
   @div{
     

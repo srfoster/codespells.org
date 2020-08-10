@@ -2,3 +2,4 @@ compiled/*
 out/*
 *.swp
 *.swo
+aws-creds
