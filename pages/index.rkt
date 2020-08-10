@@ -48,10 +48,7 @@
 		(col
 		  (p "... there was CodeSpells.  Don't worry, you can still get it on Steam!"))
 		(col
-		  (a href: "http://store.steampowered.com/app/324190"
-		     (button-success
-		       (fa-gamepad)
-		       " Get it on Steam"))))
+		  (link-to-steam)))
 
 	      (row
 		style: (properties padding-top: 20)
@@ -84,8 +81,7 @@
 		  (a href: "http://eepurl.com/hacdwD"
 		     (button-info
 		       (fa-envelope)
-		       " Join the Mailing List" ))))
-	      ))
+		       " Join the Mailing List" ))))))
 
 	  (paralax path:images/ThroughGrass.png 
 		   (div 
