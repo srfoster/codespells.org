@@ -110,8 +110,7 @@
 	  (link-to-prev-post post)))
       (br)
       (br)
-      (br)
-      )))
+      (br))))
 
 (define (preview-post post)
   (clear-card

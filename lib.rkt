@@ -6,6 +6,9 @@
   link-to-patreon
   link-to-mailing-list
   link-to-steam
+  link-to-nomic
+  link-to-thoughtstem
+  link-to-metacoders
   slugify)
 
 (require webapp/js 
@@ -93,6 +96,27 @@
      main
      content))
 
+(define (link-to-nomic (main 
+			 "Nomic")
+		       . content)
+  (a href: "https://en.wikipedia.org/wiki/Nomic"
+     main
+     content))
+
+
+(define (link-to-thoughtstem (main 
+			 "ThoughtSTEM")
+		       . content)
+  (a href: "https://www.thoughtstem.com"
+     main
+     content))
+
+(define (link-to-metacoders (main 
+			 "MetaCoders")
+		       . content)
+  (a href: "https://metacoders.org"
+     main
+     content))
 
 (define (slugify s)
   (string-downcase
