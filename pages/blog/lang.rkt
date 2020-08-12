@@ -93,7 +93,7 @@
 	     (post-title prev-post))))))
 
 (define (blog-post-page post)
-  (content
+  (normal-content
     (codespells-navbar)
     (container
       (jumbotron 

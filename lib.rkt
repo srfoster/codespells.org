@@ -1,7 +1,8 @@
-#lang racket
+#lang at-exp racket
 
 (provide 
   paralax overlay clear-card logo codespells-navbar
+  normal-content
   side-note
   link-to-patreon
   link-to-mailing-list
@@ -15,11 +16,30 @@
   show-only-on-sm-and-below)
 
 (require webapp/js 
-	 website/bootstrap/font-awesome
+	 (prefix-in normal- website/bootstrap)
+         website/bootstrap/font-awesome
 	 "./images.rkt")
 
 (define show-only-on-md-and-up "d-none d-md-block")
 (define show-only-on-sm-and-below "d-block d-md-none")
+
+(define (google-analytics)
+  (list
+    (normal-script 'async: "true" src: "https://www.googletagmanager.com/gtag/js?id=UA-69792221-4")
+    (script/inline
+      @~a{
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-69792221-4');}
+      )
+    )
+  )
+
+(define (normal-content #:head (h (void)) . more)
+  (content #:head (list h 
+                        (google-analytics))
+           more))
 
 (define (side-note . content)
   (card 

@@ -56,7 +56,7 @@
 	     " Join the Mailing List" ))))))
 
 (define (mobile-content)
-  (content
+  (normal-content
     (div
       class: show-only-on-sm-and-below
       (paralax path:images/AtCliff.png 
@@ -71,7 +71,7 @@
 	       ))))
 
 (define (big-screen-content) 
-  (content
+  (normal-content
     (div class: show-only-on-md-and-up
       @style/inline{
       @"@"keyframes pulse {

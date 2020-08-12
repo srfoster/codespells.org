@@ -21,7 +21,7 @@
 	   (all-posts)))))
 
 (define (big-screen-content)
-  (content
+  (normal-content
     (div class: show-only-on-md-and-up
 	 (overlay
 	   (blog-container))
@@ -29,7 +29,7 @@
 		  (codespells-navbar)))))
 
 (define (mobile-content)
-  (content
+  (normal-content
     (div class: show-only-on-sm-and-below
 	 (codespells-navbar)
 	 (blog-container))))
