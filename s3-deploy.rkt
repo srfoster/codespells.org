@@ -8,6 +8,24 @@
 (aws-cli-credentials "aws-creds")
 (credentials-from-file!)
 
+
+;aws/s3 wasn't handling svgs correctly.  hack it here.
+(define old-path->mime-proc (path->mime-proc))
+
+(path->mime-proc
+  (lambda (path-string)
+    (define ret
+      (if (string-suffix? (~a path-string) ".svg")
+	  "image/svg+xml"
+	  (old-path->mime-proc path-string)))
+
+    ;Leave this here because it'll help debug future mime type issues
+    (displayln (~a "Mime: " ret))
+
+    ret))
+;End hack in svgs.  TODO: Should probably open a pull request on greg's code
+
+
 (define/contract (port->Content-MD5 in)
 		 (-> input-port? string?)
 		 (match (base64-encode (md5 in #f))

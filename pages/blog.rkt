@@ -17,8 +17,10 @@
 			 padding-top: 100
 			 text-align: "center")
 		"The Blog")
-	      (card-deck
-		(map preview-post
+	      (row
+		(map (compose (curry div 
+				     class: "p-2 col-xs-12 col-md-6 col-lg-4") 
+			      preview-post)
 		  (all-posts)))))
 	  (paralax path:images/EarthBall.png
 		   (codespells-navbar)))))

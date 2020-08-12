@@ -126,7 +126,8 @@
 
 (define (image-grid . img+captions)
   (define (cardify img+caption)
-    (col-4
+    (div
+      class: "col-xs-12 col-md-6 col-lg-4"
       (card
 	class: "pt-1"
 	((car img+caption) class: "card-img-top")
