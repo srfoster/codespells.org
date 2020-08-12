@@ -9,7 +9,7 @@
 
 (define (blog.html)
   (page blog.html
-	(content
+	(normal-content
 	  (overlay
 	    (container
 	      (h1 

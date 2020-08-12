@@ -6,7 +6,7 @@
 
 (define (index.html)
   (page index.html
-	(content
+	(normal-content
 	  @style/inline{
 	  @"@"keyframes pulse {
 	  0% {
