@@ -132,7 +132,7 @@
 
   @p{We're using Patreon and Discord to grow, organize, and communicate with our community.  And I'll be using my own kind of magic (called "being a skilled software engineer") to ensure that the evolving CodeSpells codebase can flexibly bring joy to a diverse community.}
 
-  @p{I've already begun weaving this software engineering enchantment: I'm in the midst of a ground-up rewrite of the CodeSpells codebase.  Instead of developing a single monolithic thing called CodeSpells, I'm developing three different things, the combination of which is intended to cause a Big Bang, to cause the CodeSpells multiverse.}
+  @p{I've already begun weaving this software engineering enchantment: I'm in the midst of a ground-up rewrite of the CodeSpells codebase.  Instead of developing a single monolithic thing called CodeSpells, I'm developing three different things, the combination of which is intended to cause a Big Bang -- to cause the CodeSpells multiverse:}
     
        @(card 
 	  (card-body 
@@ -151,11 +151,11 @@
 	    @(img:noun_Library.svg width: 50)
 	    @b{CodeSpells Canon.} 
 	    @p{Any CodeSpells community member can publish their @(authored-works).  We'll even help you.  We won't restrict or censor works that people author (except for obvious things like hate speech, etc.).  If certain high quality works happen to agree with the existing @(canon), we will dub those works part of the @(canon) as well.  @(the-seeker) will be the first work in the @(canon).} 
-	    @p{What we want to see is a thriving ecosystem of @(authored-works) (whether they be "fan fiction" or "canonized works") all of which are 3D experiences about coding your own magic spells.  As excited as I am about personally authoring works like @(the-seeker) and the many others I have planned, I want to empower others to make such works themselves.  We'll facilitate this by maintaining the @(authoring-tools) and various resources for becoming part of the @(canon): writers guidelines, lore references, art guidelines, free art you can use, api references, documentation, tutorials, sample works, a community of friendly people, links to works from our website, etc. We want to help great works get written and found. We want to build a community around making unstarted works started, unfinished works finished, bad works good, and good works great.}))
+	    @p{What we want to see is a thriving ecosystem of @(authored-works) (whether they be "fan fiction" or "canonized works") all of which are 3D experiences about coding your own magic spells.  As excited as I am about personally authoring works like @(the-seeker) and the many others I have planned, I want to empower others to make such works themselves.  We'll facilitate this by maintaining the @(authoring-tools) and various resources for becoming part of the @(canon): writers guidelines, lore references, art guidelines, free art you can use, API references, documentation, tutorials, sample works, a community of friendly people, links to works from our website, etc. We want to help great works get written and found. We want to build a community around making unstarted works started, unfinished works finished, bad works good, and good works great.}))
 
 
   @(br)
-  @h2{Meta-force and Metaphors Be With You}
+  @h2{Meta-force and Metaphors Be with You}
 
   @(p(img:star-wars-novels.jpg width: "100%"))
 
@@ -179,11 +179,11 @@
   @li{@b{Is it a sandbox?}  Some @(authored-works) will likely be sandboxes.  The work I'm currently authoring (@(the-seeker)) is kind of "a sandbox with a story."  Does that make it a game?  I'm not sure.  Works in the @(canon) need not be forced into society's boxes.}
   @li{@b{Will it have ice magic?}  Side note: Why are people so obsessed with this?  Searching "ice magic" in my inbox turns up soooooo many results.  To answer the question: Nothing in the @(authoring-tools) nor in the lore defined by @(the-seeker) will preclude having ice magic.  So: Sure! Maybe!  Given how excited people are about it, I suspect ice magic will find its way into the @(canon).}
   @li{@b{Will it have a story?}  Everything @i{I} write will have a story -- but that's more because I've always loved good fiction and well-told stories, not because it's a requirement for a work to be in the @(canon).}
-  @li{@b{Will it have girl wizards? Will it have dragons?} Nothing stoping these! I would predict that the @(canon) will have both.}
+  @li{@b{Will it have girl wizards? Will it have dragons?} Nothing stopping these! I would predict that the @(canon) will have both.}
   @li{@b{Will it be moddable?} The @(authoring-tools) will let people make 3D experiences which are, themselves, modifiable: both from within the game (as spells) and from outside of the game (as mods).  So yes: every @(authored-work) can have additional mods.  These mods can even become @(authored-works) too.  I will likely invite people to mod @(the-seeker) however they wish when it is released.}
   
   @li{@b{Why can't you write spells in Python/JavaScript/Ruby/Haskell/Cobol/etc?}
-  Well, you can, I suppose.  The @(authoring-tools) will allow spells to be written in any language or even in multiple languages.  Initially, I'll be supporting programming languages that I create myself.  I'll be creating ones that seemlessly integrate with the stories I want to tell in @(the-seeker).  And the @(authoring-tools) will allow authors to create programming languages that fit with @i{their} stories too.  If developers want to use Python, they can.  It will be as simple as writing a REST API client in Python.  (Note: I would likely not canonize a work that uses Python/JavaScript/Ruby/Haskel/Cobol for spell crafting unless your lore convincingly explains why a programming language invented on the planet Earth is what wizards of your story use for spell crafting.)
+  Well, you can, I suppose.  The @(authoring-tools) will allow spells to be written in any language or even in multiple languages.  Initially, I'll be supporting programming languages that I create myself.  I'll be creating ones that seemlessly integrate with the stories I want to tell in @(the-seeker).  And the @(authoring-tools) will allow authors to create programming languages that fit with @i{their} stories too.  If developers want to use Python, they can.  It will be as simple as writing a REST API client in Python.  (Note: I would likely not canonize a work that uses Python/JavaScript/Ruby/Haskell/Cobol for spell crafting unless your lore convincingly explains why a programming language invented on the planet Earth is what wizards of your story use for spell crafting.)
   }
   
   @li{@b{It is appropriate for my three-year-old?} If someone authors a @(authored-work) for three-year-olds, then... yes.}

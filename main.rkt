@@ -9,6 +9,7 @@
   (list
     images
     (bootstrap-files)
+    (page favicon.ico (build-path "images" "favicon.ico"))
     (index.html)
     (blog.html)
     (all-post-pages)
