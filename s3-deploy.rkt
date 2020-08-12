@@ -15,9 +15,12 @@
 (path->mime-proc
   (lambda (path-string)
     (define ret
-      (if (string-suffix? (~a path-string) ".svg")
-	  "image/svg+xml"
-	  (old-path->mime-proc path-string)))
+      (cond 
+	[(string-suffix? (~a path-string) ".svg") "image/svg+xml"]
+	[(string-suffix? (~a path-string) ".ttf") "font/ttf"]
+	[(string-suffix? (~a path-string) ".woff") "font/woff"]
+	[(string-suffix? (~a path-string) ".woff2") "font/woff2"]
+	[else (old-path->mime-proc path-string)]))
 
     ;Leave this here because it'll help debug future mime type issues
     (displayln (~a "Mime: " ret))

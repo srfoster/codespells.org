@@ -9,11 +9,17 @@
   link-to-nomic
   link-to-thoughtstem
   link-to-metacoders
-  slugify)
+  slugify
+  
+  show-only-on-md-and-up
+  show-only-on-sm-and-below)
 
 (require webapp/js 
 	 website/bootstrap/font-awesome
 	 "./images.rkt")
+
+(define show-only-on-md-and-up "d-none d-md-block")
+(define show-only-on-sm-and-below "d-block d-md-none")
 
 (define (side-note . content)
   (card 
