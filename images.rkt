@@ -67,3 +67,10 @@
 
 (define-image images in-game-coding1.jpg)
 (define-image images in-game-coding2.gif)
+
+(define-image images noun_quill.svg)
+(define-image images noun_Book.svg)
+(define-image images noun_Library.svg)
+
+(define-image images star-wars-novels.jpg)
+(define-image images apple-pie.jpg)
