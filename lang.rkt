@@ -5,9 +5,13 @@
     webapp/js racket/runtime-path
     website/bootstrap/font-awesome
     "./images.rkt"
-    "./lib.rkt"))
+    "./videos.rkt"
+    "./lib.rkt"
+    "./runes.rkt"))
 
 (require webapp/js racket/runtime-path
 	 website/bootstrap/font-awesome
 	 "./images.rkt"
-	 "./lib.rkt") 
+	 "./videos.rkt"
+	 "./lib.rkt"
+	 "./runes.rkt") 

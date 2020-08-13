@@ -4,7 +4,8 @@
 	       "webapp"
 	       "reprovide-lang"
 	       "gregor"
-	       "aws"))
+	       "aws"
+	       "codespells-runes"))
 (define pkg-desc "Description Here")
 (define version "0.0")
 (define pkg-authors '(thoughtstem))

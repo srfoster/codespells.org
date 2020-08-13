@@ -8,6 +8,8 @@
 (define (codespells.org)
   (list
     images
+    rune-images
+    videos
     (bootstrap-files)
     (page favicon.ico (build-path "images" "favicon.ico"))
     (index.html)

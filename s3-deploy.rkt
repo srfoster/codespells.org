@@ -20,6 +20,7 @@
 	[(string-suffix? (~a path-string) ".ttf") "font/ttf"]
 	[(string-suffix? (~a path-string) ".woff") "font/woff"]
 	[(string-suffix? (~a path-string) ".woff2") "font/woff2"]
+	[(string-suffix? (~a path-string) ".webm") "video/webm"]
 	[else (old-path->mime-proc path-string)]))
 
     ;Leave this here because it'll help debug future mime type issues

@@ -1,4 +1,4 @@
-#lang racket
+#lang at-exp racket
 
 (provide 
   post->path
@@ -7,6 +7,14 @@
   define-post
   preview-post
   image-grid
+
+  authoring-tools
+  authored-works
+  authored-work
+  canon
+  the-seeker
+
+
   (struct-out post)
   (all-from-out "../../lang.rkt"))
 
@@ -138,3 +146,46 @@
     (row
       (map cardify img+captions))
     (hr)))
+
+
+
+
+(define (authoring-tools)
+  (list
+    (span
+      style: (properties 'white-space: "nowrap")
+      (img:noun_quill.svg width: 20)
+      @b{CodeSpells})
+    @b{ Authoring Tools}))
+
+(define (authored-works)
+  (list
+    (span
+      style: (properties 'white-space: "nowrap")
+      (img:noun_Book.svg width: 20)
+      @b{CodeSpells})
+    @b{ Authored Works}))
+
+(define (authored-work) 
+  (list
+    (span
+      style: (properties 'white-space: "nowrap")
+      (img:noun_Book.svg width: 20)
+      @b{CodeSpells})
+    @b{ Authored Work}))
+
+(define (canon) 
+  (list
+    (span
+      style: (properties 'white-space: "nowrap")
+      (img:noun_Library.svg width: 20)
+      @b{CodeSpells})
+    @b{ Canon}))
+
+(define (the-seeker)
+  (list
+    (span
+      style: (properties 'white-space: "nowrap")
+      (img:noun_Book.svg width: 20)
+      @b{CodeSpells:})
+    @b{ The Seeker}))

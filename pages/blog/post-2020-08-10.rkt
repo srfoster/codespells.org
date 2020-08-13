@@ -2,46 +2,6 @@
 
 (require "./lang.rkt")
 
-(define (authoring-tools)
-  (list
-    (span
-      style: (properties 'white-space: "nowrap")
-      (img:noun_quill.svg width: 20)
-      @b{CodeSpells})
-    @b{ Authoring Tools}))
-
-(define (authored-works)
-  (list
-    (span
-      style: (properties 'white-space: "nowrap")
-      (img:noun_Book.svg width: 20)
-      @b{CodeSpells})
-    @b{ Authored Works}))
-
-(define (authored-work) 
-  (list
-    (span
-      style: (properties 'white-space: "nowrap")
-      (img:noun_Book.svg width: 20)
-      @b{CodeSpells})
-    @b{ Authored Work}))
-
-(define (canon) 
-  (list
-    (span
-      style: (properties 'white-space: "nowrap")
-      (img:noun_Library.svg width: 20)
-      @b{CodeSpells})
-    @b{ Canon}))
-
-(define (the-seeker)
-  (list
-    (span
-      style: (properties 'white-space: "nowrap")
-      (img:noun_Book.svg width: 20)
-      @b{CodeSpells:})
-    @b{ The Seeker}))
-
 (define-post 
   2020-08-11
   "The CodeSpells Story - Part 2"
