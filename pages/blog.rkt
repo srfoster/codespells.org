@@ -23,10 +23,18 @@
 (define (big-screen-content)
   (normal-content
     (div class: show-only-on-md-and-up
-	 (overlay
-	   (blog-container))
-	 (paralax path:images/EarthBall.png
-		  (codespells-navbar)))))
+	 (codespells-navbar)
+	 (div 
+	      style: (properties 
+		       position: 'fixed
+		       background-image: (~a "url("path:images/EarthBall.png")")
+		       background-size:  "cover"
+		       background-position:  "center"
+		       background-repeat:  "no-repeat"
+		       background-attachment:  "fixed"
+		       height: "100vh"
+		       width: "100vw"))
+	 (blog-container))))
 
 (define (mobile-content)
   (normal-content

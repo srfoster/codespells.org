@@ -13,7 +13,10 @@
   slugify
   
   show-only-on-md-and-up
-  show-only-on-sm-and-below)
+  show-only-on-sm-and-below
+
+  github:codespells-runes 
+  github:codespells.org)
 
 (require webapp/js 
 	 (prefix-in normal- website/bootstrap)
@@ -150,3 +153,18 @@
       (~a s)
       '([#rx"[^A-Za-z0-9 ]" ""]
 	[#rx"[ ]+" "-"]))))
+
+
+(define (github:codespells-runes (main 
+				   (tt "codespells-runes"))
+		       . content)
+  (a href: "https://github.com/srfoster/codespells-runes"
+     main
+     content))
+
+(define (github:codespells.org (main 
+				   (tt "codespells.org"))
+		       . content)
+  (a href: "https://github.com/srfoster/codespells.org"
+     main
+     content))
