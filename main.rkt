@@ -7,8 +7,8 @@
 
 (define (codespells.org)
   (list
+    old-rune-images
     images
-    rune-images
     videos
     (bootstrap-files)
     (page favicon.ico (build-path "images" "favicon.ico"))

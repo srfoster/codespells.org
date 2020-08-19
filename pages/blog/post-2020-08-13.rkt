@@ -42,10 +42,13 @@
 
     @p{Here's the source code for the spell shown in the videos.}
 
-    @(parameterize
-       ([rune-width 100])
+    @(div
+       style: (properties
+		width: "100%"
+		height: 120 
+		position: "relative")
        (typeset-runes the-seeker-lang
-		      '(build small)))
+		      (build small)))
 
     @p{Stay tuned for details about this "rune-based programming paradigm" and how the @(authoring-tools) will help authors add such languages to their own @(authored-works), creating a polyglottic multiverse within the @(canon).}
 

@@ -14,9 +14,16 @@
   canon
   the-seeker
 
+  codespells-is-a-community
 
   (struct-out post)
-  (all-from-out "../../lang.rkt"))
+  (all-from-out "../../lang.rkt")
+
+  crunchy-demo-lang
+  typeset-rune-inline
+  (all-from-out codespells-runes))
+
+(require codespells-runes)
 
 (require gregor (only-in website/util element?)
 	 syntax/parse/define
@@ -189,3 +196,66 @@
       (img:noun_Book.svg width: 20)
       @b{CodeSpells:})
     @b{ The Seeker}))
+
+(define (codespells-is-a-community)
+  @a[href: "/posts/the-codespells-story-part-3.html"]{@b{CodeSpells is a community}})
+
+
+;Jason Rosenstock always called things with this look-and-feel "crunchy".
+;  A small tribute to him here.
+(define crunchy-demo-lang
+  (rune-lang 'basic-lang
+	     (list
+	       (html-rune 'build
+			  (img 
+			    width: 100
+			    src: "/RuneImages/build.svg"))
+	       (html-rune 'small
+			  (img 
+			    width: 100
+			    src: "/RuneImages/small.svg"))
+	       (html-rune 'medium
+			  (img 
+			    width: 100
+			    src: "/RuneImages/medium.svg"))
+	       (html-rune 'large
+			  (img 
+			    width: 100
+			    src: "/RuneImages/large.svg"))
+	       (html-rune 'OPEN-PAREN
+			  (div
+			    style: (properties padding-top: 25)
+			    (img 
+			      width: 50
+			      src: "/RuneImages/OPEN-PAREN.svg")))
+	       (html-rune 'CLOSE-PAREN
+			  (div
+			    style: (properties padding-top: 25)
+			    (img 
+			      width: 50
+			      src: "/RuneImages/CLOSE-PAREN.svg")))
+	       )))
+
+(define-syntax-rule (typeset-rune-inline lang prog)
+		    (span 
+		      style: 
+		      (properties
+			position: 'relative
+			display: 'inline-block
+			vertical-align: 'middle
+			overflow: 'hidden
+			width: 50  
+			height: 50)
+		      (span 
+			style: 
+			(properties
+			  position: 'relative
+			  'transform: "scale(0.5)"
+			  display: 'inline-block
+			  vertical-align: 'middle
+			  width: 100  
+			  height: 100
+			  top: -25  
+			  left: -25  )
+			(typeset-runes lang prog))))
+
