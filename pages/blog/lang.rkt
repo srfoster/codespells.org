@@ -20,7 +20,7 @@
   (all-from-out "../../lang.rkt")
 
   crunchy-demo-lang
-  typeset-rune-inline
+  code-block
   (all-from-out codespells-runes))
 
 (require codespells-runes)
@@ -236,26 +236,6 @@
 			      src: "/RuneImages/CLOSE-PAREN.svg")))
 	       )))
 
-(define-syntax-rule (typeset-rune-inline lang prog)
-		    (span 
-		      style: 
-		      (properties
-			position: 'relative
-			display: 'inline-block
-			vertical-align: 'middle
-			overflow: 'hidden
-			width: 50  
-			height: 50)
-		      (span 
-			style: 
-			(properties
-			  position: 'relative
-			  'transform: "scale(0.5)"
-			  display: 'inline-block
-			  vertical-align: 'middle
-			  width: 100  
-			  height: 100
-			  top: -25  
-			  left: -25  )
-			(typeset-runes lang prog))))
+(define (code-block . s )
+  (code (pre s)))
 

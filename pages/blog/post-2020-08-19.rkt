@@ -152,19 +152,26 @@
   @div{
     @p{What if I want to deform the terrain with cubes, not a sphere?  What if I want a sphere with radius @i{X}, not just a "small" sphere?  What if I want the sphere to be made of ice?  What if I want there to be red ice and yellow ice and green ice?  Etc.}
 
-    @p{All questions are the same @b{Big Question} really.  It's valid one: @i{What if your language doesn't let me say what I want to say?}  And for those who subscribe to @a[href: "https://en.wikipedia.org/wiki/Linguistic_relativity"]{the Sapir-Whorf hypothesis}, the question becomes a philosophical one:}
+    @p{All questions are the same @b{Big Question} really.  It's a valid one: @i{What if your language doesn't let me say what I want to say?}  And for those who subscribe to @a[href: "https://en.wikipedia.org/wiki/Linguistic_relativity"]{the Sapir-Whorf hypothesis}, the question becomes a philosophical one:}
 
     @(side-note
        @h5{(language == thought)}
        @(hr)
        @p{@b{What if your language doesn't let me express the thoughts I have in my mind?}}
-       @p{No one likes having their thoughts restricted by someone else's language.  I certainly don't.  George Orwell hated the idea so much, he wrote a whole book about it.  Why would the CodeSpells community be any different?  We are a community of dreamers.  Our genere is "fantasy" -- a word practically synonymous with "dream."    We want magic to @i{enable} dreams, not @i{restrict} them.})
+       @p{No one likes having their thoughts restricted by someone else's language.  I certainly don't.  George Orwell hated the idea so much, he wrote a whole book about it.  Why would the CodeSpells community be any different?  We are a community of dreamers.  Our genre is "fantasy" -- a word practically synonymous with "dream."    We want magic to @i{enable} dreams, not @i{restrict} them.})
 
-    @p{I'm excited, though, because I think I have a solution to the fundamental problem of: @b{How do I make a language that enables the expression all (reasonable) dreams?}}
+    @p{I'm excited, though, because I think I have a solution to the fundamental problem of: @b{How do I make a language that enables the expression of all (reasonable) dreams?}}
 
-    @p{I'll confess: my solution isn't really @i{my} solution.  It's one that we (the human race) have been working on at an exponentially increasing rate since circa the 1950s: @b{Don't build one language; Build a zillion}.  Different ones allow us to express different things in different ways.  No humble-brag intended, but: I can't even count the number of programming languages, libraries, and frameworks @i{I} know, let alone the number that must exist on the planet Earth.}
+    @p{I'll confess: my solution isn't really @i{my} solution.  It's one that we (the human race) have been working on at an exponentially increasing rate since circa the 1950s: @b{Don't build one language; Build a zillion}.  Different ones allow us to express different things in different ways.  No humble-brag intended, but: I know a @i{bunch} of programming languages, libraries, and frameworks, and it's still a tiny fraction of the number that exist on the planet Earth.}
     
-    @p{I dare say, the @(canon) shall add a few more.}
+    @p{I dare say, the @(canon) shall add a few more.  Rune-wielding wizards of worlds far away would, I think, have noticed a very interesting fact: Runes are just things in the world;
+    and spells are capable of querying and changing things in the world.  
+    The moment such wizards discovered how write spells capable of @i{reading
+    in more Runes}, they would (as we did here on Earth) immediately begin 
+    writing what one might call "interpreters" or "compilers."
+    They would immediately begin crafting new Runes, with
+    new semantics, and new rules of combination.  In other words: new languages.
+    A Tower of Babel?  I think of it more like a linguistic super nova.}
     
     @p{So for the last few days, I've been in my wizard tower forging very specific facets of the @(authoring-tools) -- the facets that will enable me @i{and others} to create new Rune-based programming languages.  Because @(codespells-is-a-community), I'm not just creating languages for my own @(authored-works), like @(the-seeker); I'm also paving the way for other developer/writers to do so.}
 
@@ -188,7 +195,7 @@
 
     @p{So that's what I've been up to in my wizard tower.  Let's get meta (as we must in CodeSpells) and talk about code for working with code!}
 
-    @p{If you happen to look at the source code for @a[href: "https://github.com/srfoster/codespells.org/blob/master/pages/blog/post-2020-08-17.rkt"]{this blog post}, you'll see that this non-Rune code:}
+    @p{If you happen to look at the source code for @a[href: "https://github.com/srfoster/codespells.org/blob/master/pages/blog/post-2020-08-19.rkt"]{this blog post}, you'll see that this non-Rune code:}
 
     @code{
     @pre{
@@ -215,24 +222,24 @@
     @code{
     @pre{
     (typeset-runes
-      basic-lang
+      (basic-lang)
       (build small))
     }
     }
 
     @p{Here's the result:}
 
-    @(div
-       style: (properties position: 'relative
-			  height: 100)
-       @(typeset-runes
-	  basic-lang
-	  (build small)))
+    @(typeset-runes-block
+       (parameterize
+	 ([svg-filter
+	    crunchy])
+	 (basic-lang))
+       (build small))
 
     @(br)
 
-    @p{It changes the look and feel. It and honestly looks too cartoony 
-    for the aesthetic I want in CodeSpells.  (Don't worry: I'm still working on it.)}
+    @p{It changes the look and feel. It looks too cartoony. 
+    (Don't worry: I'm still working on it.)}
 
     @(side-note
        @h5{(sneak peeks)}
@@ -244,9 +251,9 @@
     @p{I want to point out a few things about the (still in progress) @tt{basic-lang}.}
 
     @ul{
-      @li{Runes in @tt{basic-lang} remains legible at small sizes.  Important because I want wizards to be able to write large spells with Runes.  Blockly and Scratch both get more and more annoying the longer the program.  I want to solve this problem in Rune-based coding.}
-      @li{Runes in @tt{basic-lang} are defined with code -- not in Inkscape (as with @tt{crunchy-demo-lang}) -- so I can create Runes faster.  So can others.  Defining Rune images in code also makes it easier to package up and share Runes with others.  It's just like packaging up and sharing code.  In fact, I'm already using this feature: @tt{basic-lang} is defined over in @(github:codespells-runes) whereas this blog post's code is defined in @(github:codespells.org) merely imports it.}
-      @li{Each Rune in @tt{basic-lang} is not (just) an SVG image, but also a chunk of HTML (as showcased by the mouseover effect on each Rune.)  I want Runes to be capable of anything that can be done in HTML, CSS, and JavaScript.  They shouldn't be just images.  They should be widgets.  (Yes: You could abuse this power to break the fourth wall if you want to.  Clicking a Rune could open a modal in which you could play Tetris, code in Blockly, or join a Zoom call.  Although I'll be keeping the abuse to a minimum in my own works, I saw no reason to restrict others.)}
+      @li{Runes in @tt{basic-lang} remain legible at small sizes.  Important because I want wizards to be able to write large spells with Runes.  Blockly and Scratch both get more and more annoying the longer the program.  I want to solve this problem in Rune-based coding.}
+      @li{Runes in @tt{basic-lang} are defined with code -- not in Inkscape (as with @tt{crunchy-demo-lang}) -- so I can create Runes faster.  So can others.  Defining Rune images in code also makes it easier to package up and share Runes with others.  It's just like packaging up and sharing code.  In fact, I'm already using this feature: @tt{basic-lang} is defined over in @(github:codespells-runes) whereas this blog post's code (in @(github:codespells.org)) merely imports it.}
+      @li{Each Rune in @tt{basic-lang} is not (just) an SVG image, but also a chunk of HTML (as showcased by the mouseover effect on each Rune.)  I want Runes to be capable of anything that can be done in HTML, CSS, and JavaScript.  They shouldn't be just images.  They should be widgets.  (Yes: You could abuse this power to break the fourth wall if you want to.  Clicking a Rune could open a modal in which you could play Tetris, code in Blockly, or join a Zoom call.  Although I'll be keeping the abuse to a minimum in my own works, I see no reason to restrict others.)}
     }
 
     @p{Let's leave off with an admittedly silly example (but which actually does work in-game).}
@@ -266,7 +273,7 @@
        style: (properties position: 'relative
 			  height: 200)
        @(typeset-runes
-	  basic-lang
+	  (basic-lang)
 	  (define (C) 
 	    (build small))))
 
@@ -274,28 +281,26 @@
        style: (properties position: 'relative
 			  height: 100)
        @(typeset-runes
-	  basic-lang
+	  (basic-lang)
 	  (C)))
 
     @(br)
 
-    @p{This code defines (@(typeset-rune-inline basic-lang define)) the unbound variable 
-    (@(typeset-rune-inline basic-lang C)) to be a function.  Then, it calls 
-    that function.}
+    @p{This code defines a function (using @(typeset-rune-inline (basic-lang) define)).
+    The function is called @(typeset-rune-inline (basic-lang) C).  Previously, the underlying identifier @tt{C} was unbound, as was its Rune.  After defining the function, the code calls it.}
+    
+    @p{Like I said, a bit silly.  But I bring it up to motivate some questions...}
 
-    @p{
-    Some obvious questions: Where did the rune for @tt{C} come from?  
+    @p{Some obvious ones: Where did the rune for the unbound @tt{C} come from?  
     What if we wanted to call
     that function something other than @tt{C}?  What if we wanted that Rune to
-    look like something that reminds me of what the function does, not the 
-    letter C?
-    }
+    look like something that reminds us of what the function does, not the 
+    letter C?  }
 
     @p{Creation of Runes for user-defined variables is a key technical 
     challenge in Rune-based programming.  Luckily, I have a few solutions,
-    one of which makes use of the "Runes-are-widgets-not-images" feature I mentioned
-    before.  Stay tuned for updates on that and also on the look-and-feel of @tt{basic-lang}.}
-
+    one of which makes use of both the "Runes-are-widgets-not-images" feature I mentioned
+    before, and also the "Runes-are-defined-with-Racket-code" feature.  @b{@i{*gasp!*}} Could it be? Could we use Runes to create new Runes? (How meta can we get with CodeSpells?)  Stay tuned for updates on that and also on the look-and-feel of @tt{basic-lang}.}
 
     @p{- Stephen R. Foster}
     @(logo 200)
