@@ -16,7 +16,7 @@
 		(~a id ".svg"))))
 
 (define the-seeker-lang
-  basic-lang)
+  (basic-lang))
 
 (define old-rune-images
   (list
