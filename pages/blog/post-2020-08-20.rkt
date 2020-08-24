@@ -5,40 +5,10 @@
 (require "../../lang.rkt")
 (require "./lang.rkt")
 (require website-js/components/accordion-cards)
-(require (prefix-in h: 2htdp/image))
-
-(define (my-rune image)
-  (svg-rune-description
-    (rune-background
-      #:color "#FFA500"
-      (rune-image image))))
-
-(define c (h:circle 20 'solid 'red))
-
-(define (grid image)
-  (h:above
-    (h:beside image image)
-    (h:beside image image)))
-
-(define (my-lang)
-  (rune-lang 'my-lang
-	     (list
-	       (html-rune 'X 
-			  (my-rune
-			    (grid c)))
-	       (html-rune 'Y
-			  (my-rune
-			    (grid 
-			      (grid c))))
-	       (html-rune 'Z
-			  (my-rune
-			    (grid
-			      (grid 
-				(grid c))))))))
 
 
 (define-post 
-  2020-08-19
+  2020-08-20
   "Making Runes Pretty"
   @div{
     Design tension: Runes should look good, but be easy to produce.
@@ -312,22 +282,6 @@
 
 
     @(let ()
-       (define (my-lang)
-	 (rune-lang 'my-lang
-		    (list
-		      (html-rune 'X 
-				 (my-rune
-				   (grid c)))
-		      (html-rune 'Y
-				 (my-rune
-				   (grid 
-				     (grid c))))
-		      (html-rune 'Z
-				 (my-rune
-				   (grid
-				     (grid 
-				       (grid c)))))
-		      )))
        (typeset-runes-block
 	 (append-rune-langs
 	   (basic-lang)
@@ -337,7 +291,7 @@
     @(br)
     @(br)
 
-    @p{That expression, though, woudn't actually run.  The variables @tt{X}, @tt{Y}, and @tt{Z} all have Rune definitions, but that doesn't mean they have any meaning.  Just an appearance.  The following, however, @i{would} actually run in-game.  Can you figure out what it's equivalent to?}
+    @p{That expression, though, wouldn't actually run.  The variables @tt{X}, @tt{Y}, and @tt{Z} all have Rune definitions, but that doesn't mean they have any meaning.  Just an appearance.  The following, however, @i{would} actually run in-game.  Can you figure out what it's equivalent to?}
 
 
        @(typeset-runes-block
@@ -412,7 +366,7 @@
        @i{while} you're writing a spell.  I need this for my own sanity.}
        }
 
-       @p{Now that the basics of Rune creation and typesetting is done, 
+       @p{Now that the basics of Rune creation and typesetting are done, 
        I'm going to be working on the spell writing experience
        for the rest of the week -- you know, dragging Runes around on a canvas to
        construct spells.  I'll also be exploring a solution
