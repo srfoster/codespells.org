@@ -16,6 +16,8 @@
 
   codespells-is-a-community
 
+  dont-teach
+
   (struct-out post)
   (all-from-out "../../lang.rkt")
 
@@ -215,6 +217,10 @@
 
 (define (codespells-is-a-community)
   @a[href: "/posts/the-codespells-story-part-3.html"]{@b{CodeSpells is a community}})
+
+(define (dont-teach)
+    @(a href: "https://amzn.to/3aIBflN" @i{Don't Teach Coding: Until You Read This Book})
+  )
 
 
 ;Jason Rosenstock always called things with this look-and-feel "crunchy".

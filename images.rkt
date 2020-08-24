@@ -27,8 +27,25 @@
 							(src: path:image/id (lambda (a b) a)))
 		     (set! group (cons image/id group)))]))
 
+(define-syntax (define-images-from-folder stx)
+  (syntax-parse stx
+    [(_ path)
+     (define files (directory-list (syntax->datum #'path)))
+     
+     #`(begin
+         #,@(map
+              (lambda (f)
+                #`(define-image images #,(string->symbol (~a f)))  
+                )
+              files) 
+         )
+     ]
+    )
+  )
+
 (define images '())
 
+#|
 (define-image images logo.png)
 (define-image images CodingDemo1.png)
 (define-image images ThroughGrass.png)
@@ -74,3 +91,7 @@
 
 (define-image images star-wars-novels.jpg)
 (define-image images apple-pie.jpg)
+|#
+
+(define-images-from-folder "images")
+
