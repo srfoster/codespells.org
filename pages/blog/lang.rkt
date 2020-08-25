@@ -17,6 +17,7 @@
   codespells-is-a-community
 
   dont-teach
+  discord
 
   (struct-out post)
   (all-from-out "../../lang.rkt")
@@ -206,6 +207,9 @@
     @(a href: "https://amzn.to/3aIBflN" @i{Don't Teach Coding: Until You Read This Book})
   )
 
+(define (discord)
+    @(a href: "https://discord.gg/prsZZnm" "CodeSpells Discord")
+  )
 
 ;Jason Rosenstock always called things with this look-and-feel "crunchy".
 ;  A small tribute to him here.
