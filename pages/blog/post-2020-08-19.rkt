@@ -66,7 +66,7 @@
 
     @p{But with Runes?  They make the perfect
     collectable.  The more you collect, the more powerful your spells. 
-    Suddenly comming up with "game loops" (as the fancy people call them) becomes easy.  
+    Suddenly coming up with "game loops" (as the fancy people call them) becomes easy.  
     Here's one recipe: }
 
     @(side-note
@@ -107,7 +107,7 @@
     
     @p{I suppose you could make a Rune version of any modern programming language.
     You just have to do two things: 1) say what the syntactic (glue-like) bits 
-    should look like as Runes (parentheses, curly braces, square brackets, commas, angle brackets, etc.), and 2) say what the semantic (meaningful) bits in your language should look like as Runes (@tt{if}s, @tt{and}s, @tt{or}s, keywords like @tt{class} and @tt{for}, API functions name, user-defined variables, etc.).}
+    should look like as Runes (parentheses, curly braces, square brackets, commas, angle brackets, etc.), and 2) say what the semantic (meaningful) bits in your language should look like as Runes (@tt{if}s, @tt{and}s, @tt{or}s, keywords like @tt{class} and @tt{for}, API functions names, user-defined variables, etc.).}
 
     @p{Luckily @a[href: "https://racket-lang.org"]{the language} I'm using to build the @(authoring-tools) (and therefore
 									   the one that 

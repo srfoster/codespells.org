@@ -24,9 +24,19 @@
 
   crunchy-demo-lang
   code-block
-  (all-from-out codespells-runes))
+  (all-from-out codespells-runes)
+  
+  my-lang
+  grid
+  my-rune
+  (all-from-out 2htdp/image)
+
+  demo-editor
+  simple-surface
+  )
 
 (require codespells-runes)
+(require (prefix-in h: 2htdp/image))
 
 (require gregor (only-in website/util element?)
 	 syntax/parse/define
@@ -78,7 +88,13 @@
 			 preview
 			 content))
 		     (define p (post-getter))
-		     (add-post! p))]))
+		     (add-post! p)
+		     (module+ main
+			      (render 
+				(page (post->path p) 
+				      (blog-post-page p))
+				#:to "out"))
+		     )]))
 
 (define (post-id post)
   (slugify (post-title post)))
@@ -232,13 +248,13 @@
 			  (img 
 			    width: 100
 			    src: "/RuneImages/large.svg"))
-	       (html-rune 'OPEN-PAREN
+	       (html-rune '|(|
 			  (div
 			    style: (properties padding-top: 25)
 			    (img 
 			      width: 50
 			      src: "/RuneImages/OPEN-PAREN.svg")))
-	       (html-rune 'CLOSE-PAREN
+	       (html-rune '|)|
 			  (div
 			    style: (properties padding-top: 25)
 			    (img 
@@ -249,3 +265,79 @@
 (define (code-block . s )
   (code (pre s)))
 
+
+(define (my-rune image)
+  (svg-rune-description
+    (rune-background
+      #:color "#FFA500"
+      (rune-image image))))
+
+(define c (h:circle 20 'solid 'red))
+
+(define (grid image)
+  (h:above
+    (h:beside image image)
+    (h:beside image image)))
+
+(define (my-lang)
+  (rune-lang 'my-lang
+	     (list
+	       (html-rune 'X 
+			  (my-rune
+			    (grid c)))
+	       (html-rune 'Y
+			  (my-rune
+			    (grid 
+			      (grid c))))
+	       (html-rune 'Z
+			  (my-rune
+			    (grid
+			      (grid 
+				(grid c))))))))
+
+
+(define (demo-editor lang [prog-stx #f])
+  (enclose
+    (define out (id 'out))
+    (card-group
+      (card
+	(rune-surface-component 
+	  #:restore-state
+	  (lambda (surface)
+	    @js{
+	    setTimeout(function(){
+			var prog = @(call 'compile)
+			@out .innerHTML = prog
+			}, 1000)
+	    })
+	  #:store-state
+	  (lambda (surface)
+	    @js{
+	    //@(store-state surface)
+	    console.log(@out)
+	    var prog = @(call 'compile)
+	    @out .innerHTML = prog
+	    })
+	  lang
+	  prog-stx
+	  ))
+      (card
+	(card-body
+	  (card-text
+	    (code
+	      (pre
+		id: (id 'out)))))))
+    (script ())))
+
+(define (simple-surface lang prog-stx)
+  (rune-surface-component 
+    #:restore-state
+    (lambda (surface)
+      @js{
+      })
+    #:store-state
+    (lambda (surface)
+      @js{
+      })
+    lang
+    prog-stx))
