@@ -296,39 +296,6 @@
 				(grid c))))))))
 
 
-(define (demo-editor lang [prog-stx #f])
-  (enclose
-    (define out (id 'out))
-    (card-group
-      (card
-	(rune-surface-component 
-	  #:restore-state
-	  (lambda (surface)
-	    @js{
-	    setTimeout(function(){
-			var prog = @(call 'compile)
-			@out .innerHTML = prog
-			}, 1000)
-	    })
-	  #:store-state
-	  (lambda (surface)
-	    @js{
-	    //@(store-state surface)
-	    console.log(@out)
-	    var prog = @(call 'compile)
-	    @out .innerHTML = prog
-	    })
-	  lang
-	  prog-stx
-	  ))
-      (card
-	(card-body
-	  (card-text
-	    (code
-	      (pre
-		id: (id 'out)))))))
-    (script ())))
-
 (define (simple-surface lang prog-stx)
   (rune-surface-component 
     #:restore-state

@@ -35,4 +35,6 @@
 (define-video build-sphere-demo.webm)
 (define-video build-sphere-demo2.webm)
 (define-video build-sphere-demo3.webm)
+(define-video evaluation-demo.webm)
+(define-video end-of-week-update1.mkv)
 

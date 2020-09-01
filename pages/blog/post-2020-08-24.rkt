@@ -107,8 +107,7 @@
 
   @(toolbar-editor
      (map rune-adder 
-	  (map image-binding-id 
-	       (rune-lang-image-bindings (basic-lang))))
+	  (rune-lang-ids (basic-lang)))
      (demo-editor 
        (basic-lang)))
 

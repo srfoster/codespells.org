@@ -16,6 +16,7 @@
   show-only-on-sm-and-below
 
   github:codespells-runes 
+  github:codespells-server
   github:codespells.org)
 
 (require webapp/js 
@@ -159,6 +160,13 @@
 				   (tt "codespells-runes"))
 		       . content)
   (a href: "https://github.com/srfoster/codespells-runes"
+     main
+     content))
+
+(define (github:codespells-server (main 
+				   (tt "codespells-server"))
+		       . content)
+  (a href: "https://github.com/srfoster/codespells-server"
      main
      content))
 
