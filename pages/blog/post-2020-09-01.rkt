@@ -23,8 +23,9 @@
 (define-post 
   2020-09-01
   "New Runes + New Spells"
+  @div{Some Runic puzzles for you!}
   @div{
-  @p{I added a few Runes today, and wrote some spells with them.
+  @p{I added a few Runes today and wrote some spells with them.
  I'll present them as puzzles.  Can you figure out what they do?
  I'll post videos in my next post!}
 
@@ -107,11 +108,6 @@
       (down medium
        (dig medium)))))
   
-  }
-  @div{
-
-  @p{
- }
 
   @p{- Stephen R. Foster}
   @(logo 200)
