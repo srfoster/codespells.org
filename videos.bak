@@ -21,10 +21,9 @@
 		     (define-runtime-path id (~a "videos/" 'id))
 		     (define page:id (page videos/id id))
 		     (provide video:id)
-		     (define (video:id #:autoplay [autoplay #t] . args)
+		     (define (video:id . args)
 		       ;Ignoring the args.  TODO: Do something fancier, maybe make define/provide/element fancier while we're at it
-		       (video 'autoplay: autoplay 'loop: autoplay 'muted: autoplay width: "100%"
-                              'controls: (not autoplay)
+		       (video 'autoplay: #t 'loop: #t 'muted: #t width: "100%"
 			      (source src: (prefix/pathify (list "videos" (~a 'id)))
 				      type: "video/webm")
 			      "Sorry, your browser doesn't support video embeds" ))
@@ -39,7 +38,3 @@
 (define-video evaluation-demo.webm)
 (define-video end-of-week-update1.mkv)
 
-(define-video teleport-build.mp4)
-(define-video building-statues.mp4)
-(define-video digging-a-cave-and-teleporting-around.mp4)
-(define-video purple-glass-world.mp4)
