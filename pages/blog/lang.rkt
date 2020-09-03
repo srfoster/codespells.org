@@ -137,6 +137,12 @@
       (post-preview post)
       (hr)
       (post-content post)
+      (br)
+      (p "P.S. Please consider supporting us on Patreon.  We can't do this without you!")
+      (link-to-patreon)
+      (br)
+      (br)
+
       (card
 	(card-body
 	  (link-to-next-post post)

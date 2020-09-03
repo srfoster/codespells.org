@@ -3,3 +3,6 @@ out/*
 *.swp
 *.swo
 aws-creds
+*.bak
+*.dep
+*.zo
