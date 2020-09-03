@@ -43,3 +43,5 @@
 (define-video building-statues.mp4)
 (define-video digging-a-cave-and-teleporting-around.mp4)
 (define-video purple-glass-world.mp4)
+
+(define-video particle-party.mp4)
