@@ -45,3 +45,4 @@
 (define-video purple-glass-world.mp4)
 
 (define-video particle-party.mp4)
+(define-video particle-structures.mp4)
