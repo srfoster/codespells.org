@@ -46,3 +46,5 @@
 
 (define-video particle-party.mp4)
 (define-video particle-structures.mp4)
+(define-video particle-motors.mp4)
+(define-video particle-windmills.mp4)
