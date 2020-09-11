@@ -66,8 +66,6 @@
 
  @p{"Precisely."}
 
- @p{"What about @b{Runes}?  Are they @b{Spells} or @b{Things}?"}
-
  @h4{@i{Truth #3: A @b{Spell} (when cast) can create, destroy, or change @b{Things}}}
 
  @p{"Hmmm," said the young wizard.  "Why can't we just make @b{Spells} @i{be} @b{Things}?  Seems like it would be simpler."}
