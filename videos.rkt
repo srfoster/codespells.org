@@ -48,3 +48,6 @@
 (define-video particle-structures.mp4)
 (define-video particle-motors.mp4)
 (define-video particle-windmills.mp4)
+
+(define-video beam-demo.mp4)
+
