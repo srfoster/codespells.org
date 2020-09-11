@@ -105,14 +105,13 @@
    on every frame, the @b{Spell} server should ship the appropriate JavaScript to Unreal.}}
 
  @h4{@i{Truth #4: A @b{Spell} can be thought of in two ways: @b{Crafted} and @b{Casted}.  @b{Magic} is what happens
- after a @b{Spell} is @b{Casted}.}}
+ after a @b{Spell} is @b{Cast}.}}
 
  @p{"So... when I've @b{Crafted} a @b{Spell}," said the young wizard, "what happens when I @b{Cast} it?"}
 
  @p{"@b{Magic}," said the Arch Mage with a faint smile.  "@b{Magic} begins life in the @b{Aether} and continues to live within the @b{World}.
  First, your @b{Spell}, as @b{Crafted} upon your surface, gets interpreted or transformed by whatever gods or machines or incomprehensible
- processes exist in the @b{Aether}.  Those @b{Aetherial} @b{Magical} processes are ultimately transformed into @b{Magical} processes that continue to unfold here
- in the @b{World}."}
+ processes exist in the @b{Aether}.  Those @b{Aetherial} @b{Magical} processes are transformed into @b{Worldly} @b{Magical} processes that continue to unfold here in our @b{World}."}
 
  @h4{@i{Truth #5: @b{Magic} begins in the @b{Aether} and continues in the @b{World}.  The event of @b{Magic} traveling between
  @b{Aether} and @b{World} is called @b{Crossing}.}}

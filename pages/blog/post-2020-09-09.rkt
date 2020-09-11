@@ -17,7 +17,7 @@
 (define-post 
   2020-09-09
   "1st Ever Live Coding Demo"
-  @div{Particles are the key to making magic feel like magic}
+  @div{Things have finally come together enough for me to do a crude "Watch me Code" kind of video!}
   @div{
 
  @p{It is by no means final, but here's a live-coding demo of the spellcrafting language as it is today.

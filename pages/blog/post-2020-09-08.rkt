@@ -27,7 +27,7 @@
   @(br)
   @(br)
 
-  @p{Today, I did more work on the API for creating these machine-like structures with spells.  If you look closely in the following video, you'll see a flash of the text-based code (which ends up being hidden away in a Rune widget). Even though the API (or maybe I should say, DSL) is a work in progress, those of you who have programmed in Unreal or Unity will immediately see my goal: to abstract away all of the setting of locations, rotations, parent/child relationships, etc..  Wizards who don't wish to worry about these things shouldn't have to.}
+  @p{Today, I did more work on the API for creating these machine-like structures with spells.  Tomorrow, I'll post a demo of the code. Even though the API (or maybe I should say, DSL) is a work in progress, those of you who have programmed in Unreal or Unity will immediately see my goal: to abstract away all of the setting of locations, rotations, parent/child relationships, etc..  Wizards who don't wish to worry about these things shouldn't have to.}
 
   @(video:particle-windmills.mp4 #:autoplay #f)
   
