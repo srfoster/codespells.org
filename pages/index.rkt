@@ -53,7 +53,21 @@
 	(a href: "http://eepurl.com/hacdwD"
 	   (button-info
 	     (fa-envelope)
-	     " Join the Mailing List" ))))))
+	     " Join the Mailing List" ))))
+    
+    (row
+      style: (properties padding-top: 20)
+      (col
+	class: show-only-on-md-and-up
+	(p "Join the community; make friends; create together."))
+
+      (col
+	(a href: "https://discord.gg/prsZZnm"
+	   (button-danger
+	     (fa-envelope)
+	     " Join the Discord" ))))
+    
+    ))
 
 (define (mobile-content)
   (normal-content
