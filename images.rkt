@@ -35,13 +35,8 @@
      #`(begin
          #,@(map
               (lambda (f)
-                #`(define-image images #,(string->symbol (~a f)))  
-                )
-              files) 
-         )
-     ]
-    )
-  )
+                #`(define-image images #,(string->symbol (~a f))))
+              files))]))
 
 (define images '())
 

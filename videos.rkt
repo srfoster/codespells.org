@@ -1,7 +1,6 @@
 #lang racket
 
-(provide videos
-	 video:build-sphere-demo.webm)
+(provide videos)
 
 (require webapp/js 
 	 racket/runtime-path
@@ -30,9 +29,22 @@
 			      "Sorry, your browser doesn't support video embeds" ))
 		     (set! videos (cons page:id videos)))]))
 
+(define-syntax (define-videos-from-folder stx)
+  (syntax-parse stx
+    [(_ path)
+     (define files (directory-list (syntax->datum #'path)))
+     
+     #`(begin
+         #,@(map
+              (lambda (f)
+                #`(define-video #,(string->symbol (~a f))))
+              files))]))
 
 (define videos '())
 
+(define-videos-from-folder "videos")
+
+#|
 (define-video build-sphere-demo.webm)
 (define-video build-sphere-demo2.webm)
 (define-video build-sphere-demo3.webm)
@@ -50,4 +62,8 @@
 (define-video particle-windmills.mp4)
 
 (define-video beam-demo.mp4)
+
+(define-video minecraft-world-clip1.mp4)
+
+|#
 

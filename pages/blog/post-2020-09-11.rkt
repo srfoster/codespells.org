@@ -17,7 +17,7 @@
 (define-post 
   2020-09-10
   "Toward a 1st Release - Part 2"
-  @div{Engineering a release means writing documentation}
+  @div{More weird, weird documentation}
   @div{
 
  @code-block{

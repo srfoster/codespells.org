@@ -17,7 +17,9 @@
 
   github:codespells-runes 
   github:codespells-server
-  github:codespells.org)
+  github:codespells.org
+  github:codespells
+  github:codespells-demo-mod)
 
 (require webapp/js 
 	 (prefix-in normal- website/bootstrap)
@@ -174,5 +176,20 @@
 				   (tt "codespells.org"))
 		       . content)
   (a href: "https://github.com/srfoster/codespells.org"
+     main
+     content))
+
+(define (github:codespells (main 
+				   (tt "codespells"))
+		       . content)
+  (a href: "https://github.com/srfoster/codespells"
+     main
+     content))
+
+(define (github:codespells-demo-mod 
+	  (main 
+	    (tt "codespells-demo-mod"))
+	  . content)
+  (a href: "https://github.com/srfoster/codespells-demo-mod"
      main
      content))

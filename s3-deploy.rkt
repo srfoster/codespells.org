@@ -57,21 +57,28 @@
        (hasheq 'Content-MD5 (file->Content-MD5 path))
        #:chunk-len chunk-len))
 
-(define (upload)
+(define (file-matches path strings)
+  (if (empty? strings)
+      #f
+      (or 
+	(regexp-match (regexp (first strings)) (~a path))
+	(file-matches path (rest strings)))))
+
+(define (upload [only-matching '()])
   (fold-files
     (lambda (path kind acc)
       (define short-path (regexp-replace 
 			   #rx"^out/"
 			   (~a path)
 			   ""))
-      (displayln short-path)
-      (when (eq? kind 'file)
-	(put/file (~a "codespells-org/" short-path)
-		  path
-		  #:mode 'text)))
+      (when (and (eq? kind 'file)
+		 (or (empty? only-matching)
+		     (file-matches path only-matching)))
+	  (put/file (~a "codespells-org/" short-path)
+		    path
+		    #:mode 'text)))
     #f
     "out"))
 
 (module+ main
-	 (upload)
-	 )
+	 (upload (vector->list (current-command-line-arguments))))
