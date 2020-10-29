@@ -5,9 +5,6 @@
 (require "./lang.rkt")
 
 
-(define (yt id)
-  (iframe 'width: "560" 'height: "315" 'src: (~a "https://www.youtube.com/embed/" id) 'frameborder: "0" 'allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 'allowfullscreen: #t))
-
 (define-post
   2020-10-16
   "Creation and Destruction"

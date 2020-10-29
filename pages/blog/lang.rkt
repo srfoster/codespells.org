@@ -33,7 +33,8 @@
 
   demo-editor
   simple-surface
-  )
+
+  yt)
 
 (require codespells-runes)
 (require (prefix-in h: 2htdp/image))
@@ -314,3 +315,7 @@
       })
     lang
     prog-stx))
+
+
+(define (yt id)
+  (iframe 'width: "560" 'height: "315" 'src: (~a "https://www.youtube.com/embed/" id) 'frameborder: "0" 'allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 'allowfullscreen: #t))
