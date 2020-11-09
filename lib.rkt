@@ -4,6 +4,7 @@
   paralax overlay clear-card logo codespells-navbar
   normal-content
   side-note
+  link-to-builds
   link-to-patreon
   link-to-mailing-list
   link-to-steam
@@ -95,8 +96,19 @@
     #:brand (logo 100)
     (nav-link 
       "blog.html"
-      "Blog")))
+      "Blog")
+    (nav-link 
+      "builds.html"
+      "Downloads")
+    ))
 
+(define (link-to-builds (main 
+			   "Builds Page"
+			   )
+			 . content)
+  (a href: "/builds.html" 
+     main
+     content))
 
 (define (link-to-patreon (main 
 			   (button-primary

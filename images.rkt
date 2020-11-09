@@ -90,3 +90,8 @@
 
 (define-images-from-folder "images")
 
+
+(module+ main
+	 (render #:to "out" 
+		 images))
+

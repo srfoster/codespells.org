@@ -14,6 +14,7 @@
     (page favicon.ico (build-path "images" "favicon.ico"))
     (index.html)
     (blog.html)
+    (builds.html)
     (all-post-pages)
     ))
 
