@@ -1,11 +1,27 @@
 #lang racket
 
-(provide builds.html)
+(provide builds.html
+         mods
+         )
 
 (require 
   "../lang.rkt"
   "blog/lang.rkt"
+  (prefix-in arena-world-demo-build: arena-world-demo-build/lore)
+  (prefix-in fire-particles: fire-particles/lore)
   ;Require in the various builds??
+  )
+
+(define (mods)
+  (list 
+    (page collections/illusions-of-flame/index.html (normal-content
+              (codespells-navbar)
+              (container
+                (h1 (fire-particles:name))
+                (fire-particles:description)
+                (fire-particles:runes)
+                )))
+    )
   )
 
 (define (download-button name)
@@ -17,7 +33,7 @@
 (define (coming-soon)
   (alert-primary "Coming soon!"))
 
-(define (build-card title img [content (coming-soon)])
+(define (build-card title img . content)
   (card
     (card-header title
 		 (img class: "card-img-top"))
@@ -26,33 +42,29 @@
 (define (open-builds)
   (local-require (prefix-in fire-particles: fire-particles))
   (list
-    (build-card "Arena"  img:arena-world-demo.png 
+    (build-card "Arena"  img:arena-world-demo.png
+                (div
+                  (h5 (arena-world-demo-build:name))
+                  (arena-world-demo-build:description)
+                  (arena-world-demo-build:rune-collections)
+                  )
 		(div
 		  (alert-success (b "Included Runes. ") "Various fire particles"
-				 (div
-				   (typeset-rune-inline (fire-particles:my-mod-lang) flames)
-				   (typeset-rune-inline (fire-particles:my-mod-lang) explosion)
-				   (typeset-rune-inline (fire-particles:my-mod-lang) fire-beam)))
+                                 )
 		  (note "We are currently adding new runes and will update this world when we do.")
 		  (info "In its current form, we estimate this build to be worth about " (b "3 minutes of fun") ". Try filling the arena with particles.")
 		  (download-button "arena-world-demo")))
     (build-card "Cave"   img:cave-world-demo.png 
 		(div
 		  (alert-success (b "Included Runes. ") "Various fire particles"
-				 (div
-				   (typeset-rune-inline (fire-particles:my-mod-lang) flames)
-				   (typeset-rune-inline (fire-particles:my-mod-lang) explosion)
-				   (typeset-rune-inline (fire-particles:my-mod-lang) fire-beam)))
+                                 )
 		  (note "We are currently adding new runes and will update this world when we do.")
 		  (info "In its current form, we estimate this build to be worth about " (b "3 minutes of fun") ". Explore the nooks and crannies of the cave.  Listen to the sounds.  Discover that you can escape the level and fall into infinity.")
 		  (download-button "cave-world-demo")))
     (build-card "Voxels" img:voxel-world-demo.png 
 		(div
 		  (alert-success (b "Included Runes. ") "Various fire particles"
-				 (div
-				   (typeset-rune-inline (fire-particles:my-mod-lang) flames)
-				   (typeset-rune-inline (fire-particles:my-mod-lang) explosion)
-				   (typeset-rune-inline (fire-particles:my-mod-lang) fire-beam)))
+                                 )
 		  (note "We are currently adding new runes and will update this world when we do.")
 		  (info "In its current form, we estimate this build to be worth about " (b "5 minutes of fun") ". Walk through the infinite world.  Fall into ravines.  Try to get out again.  Grumble that we have not yet added the teleport Rune to this build.")
 		  (download-button "voxel-world-demo")))))
@@ -126,4 +138,6 @@
 (module+ main
 	 (render #:to "out"
 		 (list 
-		   (builds.html))))
+		   (builds.html)
+                   (mods)
+                   )))
