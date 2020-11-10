@@ -1,10 +1,10 @@
-#lang racket
+  #lang racket
 
-(provide builds.html rune-collection-pages)
+  (provide builds.html rune-collection-pages)
 
-(require 
-  "../lang.rkt"
-  "blog/lang.rkt"
+  (require 
+    "../lang.rkt"
+    "blog/lang.rkt"
   "builds/lang.rkt"
   codespells/lore)
 
@@ -16,10 +16,17 @@
 
 ;Mods
 (require 
-  (prefix-in fire-particles: fire-particles/lore))
+  (prefix-in fire-particles: fire-particles/lore)
+  (prefix-in rocks: rocks/lore)
+  (prefix-in ice-particles: ice-particles/lore)
+  )
 
 (define (rune-collection-pages)
   (list 
+    (rune-collection-page rocks 
+			  collections/rocks/index.html)  
+    (rune-collection-page ice-particles 
+			  collections/illusions-of-ice/index.html)
     (rune-collection-page fire-particles
 			  collections/illusions-of-flame/index.html)))
 
@@ -50,7 +57,10 @@
 	(compose 
 	  (curry div class: "p-2 col-xs-12 col-md-6 col-lg-4")
 	  rune-collection-name->preview-card)
-	(list 'fire-particles)))))
+	(list 'fire-particles
+              'rocks
+              'ice-particles
+              )))))
 
 (define (patreon-build-section)
   (list
@@ -64,6 +74,7 @@
   (list 
     (h2 "Tech Demo Builds")
     (p "These are free CodeSpells tech demo builds.  You can download them, play them, and even re-distribute them to friends.")
+    (alert-warning (b "Note. ")  "We are currently adding new runes and will update these builds when we do.")
     (row
       (map (curry div class: "p-2 col-xs-12 col-md-6 col-lg-4")
 	   (open-builds)))))

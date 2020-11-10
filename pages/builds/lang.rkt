@@ -9,7 +9,8 @@
 	 coming-soon)
 
 (require "../../lang.rkt"
-	 syntax/parse/define
+	 website-js/components/accordion-cards
+         syntax/parse/define
 	 codespells/lore
 	 (for-syntax racket/syntax
 		     racket/format))
@@ -59,16 +60,18 @@
 			     preview-image
 			     ))
 
-		     (build-card (name) 
+                     (build-card (h3 (name)) 
 				 (img class: "card-img-top"
 				      src: (~a 
 					     "builds/" 'prefix"/preview.png"))
-				 (div
-				   (description)
+				 (accordion-card #:header "Read More..."
 				   (h5 "Rune Collections")
 				   (map 
-				     rune-collection-name->preview-card 
-				     (rune-collections)))
+				     rune-collection-name->preview-icon 
+				     (rune-collections))
+                                   (br)
+				   (description)
+                                   )
 
 				 (hr)
 
