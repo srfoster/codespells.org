@@ -1,73 +1,34 @@
 #lang racket
 
-(provide builds.html
-         mods
-         )
+(provide builds.html rune-collection-pages)
 
 (require 
   "../lang.rkt"
   "blog/lang.rkt"
+  "builds/lang.rkt"
+  codespells/lore)
+
+;Builds
+(require
   (prefix-in arena-world-demo-build: arena-world-demo-build/lore)
-  (prefix-in fire-particles: fire-particles/lore)
-  ;Require in the various builds??
-  )
+  (prefix-in cave-world-demo-build: cave-world-demo-build/lore)
+  (prefix-in voxel-world-demo-build: voxel-world-demo-build/lore))
 
-(define (mods)
+;Mods
+(require 
+  (prefix-in fire-particles: fire-particles/lore))
+
+(define (rune-collection-pages)
   (list 
-    (page collections/illusions-of-flame/index.html (normal-content
-              (codespells-navbar)
-              (container
-                (h1 (fire-particles:name))
-                (fire-particles:description)
-                (fire-particles:runes)
-                )))
-    )
-  )
+    (rune-collection-page fire-particles
+			  collections/illusions-of-flame/index.html)))
 
-(define (download-button name)
-  (a href: (~a "https://codespells-org.s3.amazonaws.com/StandaloneBuilds/" name "/0.0/" name ".zip")
-     (button-success "Download for Windows"
-		     (img:windows.svg width: 25 style: (properties margin-left: 5)))
-     ))
-
-(define (coming-soon)
-  (alert-primary "Coming soon!"))
-
-(define (build-card title img . content)
-  (card
-    (card-header title
-		 (img class: "card-img-top"))
-    (card-body content)))
 
 (define (open-builds)
-  (local-require (prefix-in fire-particles: fire-particles))
   (list
-    (build-card "Arena"  img:arena-world-demo.png
-                (div
-                  (h5 (arena-world-demo-build:name))
-                  (arena-world-demo-build:description)
-                  (arena-world-demo-build:rune-collections)
-                  )
-		(div
-		  (alert-success (b "Included Runes. ") "Various fire particles"
-                                 )
-		  (note "We are currently adding new runes and will update this world when we do.")
-		  (info "In its current form, we estimate this build to be worth about " (b "3 minutes of fun") ". Try filling the arena with particles.")
-		  (download-button "arena-world-demo")))
-    (build-card "Cave"   img:cave-world-demo.png 
-		(div
-		  (alert-success (b "Included Runes. ") "Various fire particles"
-                                 )
-		  (note "We are currently adding new runes and will update this world when we do.")
-		  (info "In its current form, we estimate this build to be worth about " (b "3 minutes of fun") ". Explore the nooks and crannies of the cave.  Listen to the sounds.  Discover that you can escape the level and fall into infinity.")
-		  (download-button "cave-world-demo")))
-    (build-card "Voxels" img:voxel-world-demo.png 
-		(div
-		  (alert-success (b "Included Runes. ") "Various fire particles"
-                                 )
-		  (note "We are currently adding new runes and will update this world when we do.")
-		  (info "In its current form, we estimate this build to be worth about " (b "5 minutes of fun") ". Walk through the infinite world.  Fall into ravines.  Try to get out again.  Grumble that we have not yet added the teleport Rune to this build.")
-		  (download-button "voxel-world-demo")))))
+    (build->build-card arena-world-demo-build)
+    (build->build-card cave-world-demo-build)
+    (build->build-card voxel-world-demo-build)))
 
 (define (patreon-builds)
   (list
@@ -78,8 +39,18 @@
     (build-card "Multiplayer Prototype" img
 		(div
 		  (coming-soon)
-		  (link-to-patreon)))
-    ))
+		  (link-to-patreon)))))
+
+(define (rune-collection-section)
+  (list
+    (h2 "Rune Collections")
+    (p "Currently, you gain access to one of these collections by downloading a " (authored-work) " that contains it.  In the future, you will be able to add Rune Collections to " (authored-works) " at runtime (i.e. modding).")
+    (row
+      (map 
+	(compose 
+	  (curry div class: "p-2 col-xs-12 col-md-6 col-lg-4")
+	  rune-collection-name->preview-card)
+	(list 'fire-particles)))))
 
 (define (patreon-build-section)
   (list
@@ -93,8 +64,6 @@
   (list 
     (h2 "Tech Demo Builds")
     (p "These are free CodeSpells tech demo builds.  You can download them, play them, and even re-distribute them to friends.")
-    (note "These tech demos are under active development and will be updated frequently.  The builds you download, however, are NOT self-updating.  To get updated builds, you will have to check back here and re-download.")
-    (note "These builds are Windows-only at this time.  We'll let you know when that changes.")
     (row
       (map (curry div class: "p-2 col-xs-12 col-md-6 col-lg-4")
 	   (open-builds)))))
@@ -115,6 +84,8 @@
     (demo-build-section)
     (hr)
     (patreon-build-section)
+    (hr)
+    (rune-collection-section)
     ))
 
 (define (big-screen-content)
@@ -139,5 +110,5 @@
 	 (render #:to "out"
 		 (list 
 		   (builds.html)
-                   (mods)
-                   )))
+		   (rune-collection-pages)
+		   images)))

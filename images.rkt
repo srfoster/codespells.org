@@ -1,6 +1,7 @@
 #lang racket
 
-(provide images)
+(provide images
+	 add-image!)
 
 (require webapp/js 
 	 racket/runtime-path
@@ -39,6 +40,9 @@
               files))]))
 
 (define images '())
+
+(define (add-image! i)
+  (set! images (cons i images)))
 
 #|
 (define-image images logo.png)
