@@ -96,7 +96,8 @@
 (module+ main
 	 (render #:to "out"
 		 (list 
+		   (bootstrap-files)
 		   (rune-collection-pages)
-		   images
 		   (builds.html)
+		   images
 		   )))

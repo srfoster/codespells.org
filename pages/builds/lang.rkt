@@ -22,8 +22,8 @@
     ;  Only one takes the work name
     (add-image! 
       (authored-work-lore->preview-image/page 
-	(list "builds" 
-	      (~a authored-work-name) 
+	(list "works" 
+	      (lore->name-slug lore)
 	      "preview.png")
 	lore))
     (authored-work-lore->authored-work-card 
@@ -37,7 +37,7 @@
 				c)))
   (let ()
     (rune-collection-lore->rune-collection/page
-      (list "collections" (~a authored-work-name) "index.html")
+      (list "collections" (lore->name-slug lore) "index.html")
       lore
       wrapper)))
 
