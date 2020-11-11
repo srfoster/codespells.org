@@ -1,41 +1,82 @@
-  #lang racket
+#lang racket
 
-  (provide builds.html rune-collection-pages)
+(provide builds.html rune-collection-pages)
 
-  (require 
-    "../lang.rkt"
-    "blog/lang.rkt"
+(require 
+  "../lang.rkt"
+  "blog/lang.rkt"
   "builds/lang.rkt"
   codespells/lore)
 
-;Builds
+#;
+(define-rune-collection-cards-and-pages 
+  (rune-collection-cards rune-collection-pages)
+  (fire-particles rocks ice-particles))
+
+#;
+(define-works-cards
+  (open-builds)
+  (arena-world-demo-build cave-world-demo-build voxel-world-demo-build))
+
+;For each rune collection we need a require, a card and a page
+
+
+(require 
+  (prefix-in fire-particles: fire-particles/lore)
+  (prefix-in rocks: rocks/lore)
+  (prefix-in ice-particles: ice-particles/lore))
+
+(define (rune-collection-cards)
+  (map
+    rune-collection-name->preview-card
+    (list 'fire-particles
+	  'rocks
+	  'ice-particles)))
+
+(define (rune-collection-pages)
+  (define wrapper (lambda (c) (normal-content
+				(codespells-navbar)
+				c)))
+  (list 
+    ;Paths must match name, gross again, move to lore
+    (rune-collection-page rocks 
+			  collections/conjurings-of-rock/index.html
+			  wrapper)  
+    (rune-collection-page ice-particles 
+			  collections/illusions-of-ice/index.html
+			  wrapper)
+    (rune-collection-page fire-particles
+			  collections/illusions-of-flame/index.html
+			  wrapper)))
+
+
+;For each build/work, we need a require and a card
+
 (require
   (prefix-in arena-world-demo-build: arena-world-demo-build/lore)
   (prefix-in cave-world-demo-build: cave-world-demo-build/lore)
   (prefix-in voxel-world-demo-build: voxel-world-demo-build/lore))
 
-;Mods
-(require 
-  (prefix-in fire-particles: fire-particles/lore)
-  (prefix-in rocks: rocks/lore)
-  (prefix-in ice-particles: ice-particles/lore)
-  )
-
-(define (rune-collection-pages)
-  (list 
-    (rune-collection-page rocks 
-			  collections/rocks/index.html)  
-    (rune-collection-page ice-particles 
-			  collections/illusions-of-ice/index.html)
-    (rune-collection-page fire-particles
-			  collections/illusions-of-flame/index.html)))
-
-
+#;
 (define (open-builds)
   (list
-    (build->build-card arena-world-demo-build)
-    (build->build-card cave-world-demo-build)
-    (build->build-card voxel-world-demo-build)))
+    (let ()
+      (add-image! (build->preview-image-page arena-world-demo-build))
+      (build->build-card arena-world-demo-build))
+    (let ()
+      (add-image! (build->preview-image-page cave-world-demo-build))
+      (build->build-card cave-world-demo-build))
+    (let ()
+      (add-image! (build->preview-image-page voxel-world-demo-build))
+      (build->build-card voxel-world-demo-build))))
+
+
+
+
+
+
+
+
 
 (define (patreon-builds)
   (list
@@ -54,13 +95,9 @@
     (p "Currently, you gain access to one of these collections by downloading a " (authored-work) " that contains it.  In the future, you will be able to add Rune Collections to " (authored-works) " at runtime (i.e. modding).")
     (row
       (map 
-	(compose 
-	  (curry div class: "p-2 col-xs-12 col-md-6 col-lg-4")
-	  rune-collection-name->preview-card)
-	(list 'fire-particles
-              'rocks
-              'ice-particles
-              )))))
+	(curry div class: "p-2 col-xs-12 col-md-6 col-lg-4")
+	(rune-collection-cards)
+	))))
 
 (define (patreon-build-section)
   (list
@@ -120,6 +157,7 @@
 (module+ main
 	 (render #:to "out"
 		 (list 
-		   (builds.html)
 		   (rune-collection-pages)
-		   images)))
+		   images
+		   (builds.html)
+		   )))
