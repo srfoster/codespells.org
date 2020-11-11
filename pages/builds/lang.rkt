@@ -1,7 +1,8 @@
 #lang racket
 
 (provide (all-from-out codespells/lore)
-	 define-works-cards)
+	 ;define-works-cards
+         )
 (require codespells/lore
 	 "../../lang.rkt"
 	 syntax/parse/define

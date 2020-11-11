@@ -57,7 +57,7 @@
   (prefix-in cave-world-demo-build: cave-world-demo-build/lore)
   (prefix-in voxel-world-demo-build: voxel-world-demo-build/lore))
 
-#;
+
 (define (open-builds)
   (list
     (let ()
