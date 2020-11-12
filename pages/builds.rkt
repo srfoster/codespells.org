@@ -8,75 +8,13 @@
   "builds/lang.rkt"
   codespells/lore)
 
-#;
 (define-rune-collection-cards-and-pages 
   (rune-collection-cards rune-collection-pages)
-  (fire-particles rocks ice-particles))
+  (rocks fire-particles ice-particles))
 
-#;
 (define-works-cards
   (open-builds)
   (arena-world-demo-build cave-world-demo-build voxel-world-demo-build))
-
-;For each rune collection we need a require, a card and a page
-
-
-(require 
-  (prefix-in fire-particles: fire-particles/lore)
-  (prefix-in rocks: rocks/lore)
-  (prefix-in ice-particles: ice-particles/lore))
-
-(define (rune-collection-cards)
-  (map
-    rune-collection-name->preview-card
-    (list 'fire-particles
-	  'rocks
-	  'ice-particles)))
-
-(define (rune-collection-pages)
-  (define wrapper (lambda (c) (normal-content
-				(codespells-navbar)
-				c)))
-  (list 
-    ;Paths must match name, gross again, move to lore
-    (rune-collection-page rocks 
-			  collections/conjurings-of-rock/index.html
-			  wrapper)  
-    (rune-collection-page ice-particles 
-			  collections/illusions-of-ice/index.html
-			  wrapper)
-    (rune-collection-page fire-particles
-			  collections/illusions-of-flame/index.html
-			  wrapper)))
-
-
-;For each build/work, we need a require and a card
-
-(require
-  (prefix-in arena-world-demo-build: arena-world-demo-build/lore)
-  (prefix-in cave-world-demo-build: cave-world-demo-build/lore)
-  (prefix-in voxel-world-demo-build: voxel-world-demo-build/lore))
-
-
-(define (open-builds)
-  (list
-    (let ()
-      (add-image! (build->preview-image-page arena-world-demo-build))
-      (build->build-card arena-world-demo-build))
-    (let ()
-      (add-image! (build->preview-image-page cave-world-demo-build))
-      (build->build-card cave-world-demo-build))
-    (let ()
-      (add-image! (build->preview-image-page voxel-world-demo-build))
-      (build->build-card voxel-world-demo-build))))
-
-
-
-
-
-
-
-
 
 (define (patreon-builds)
   (list
@@ -157,7 +95,8 @@
 (module+ main
 	 (render #:to "out"
 		 (list 
+		   (bootstrap-files)
 		   (rune-collection-pages)
-		   images
 		   (builds.html)
+		   images
 		   )))
