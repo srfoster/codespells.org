@@ -1,6 +1,6 @@
-#lang racket
+#lang at-exp racket
 
-(provide builds.html rune-collection-pages)
+(provide authored-works.html rune-collection-pages)
 
 (require 
   "../lang.rkt"
@@ -13,16 +13,17 @@
   (rocks fire-particles ice-particles))
 
 (define-works-cards
-  (open-builds)
+  (open-authored-works)
   (arena-world-demo-build cave-world-demo-build voxel-world-demo-build))
 
-(define (patreon-builds)
+
+(define (patreon-authored-works)
   (list
-    (build-card "Rolling Hills" img
+    (authored-work-card #:name "Rolling Hills" #:preview-image img
 		(div
 		  (coming-soon)
 		  (link-to-patreon)))
-    (build-card "Multiplayer Prototype" img
+    (authored-work-card #:name "Multiplayer Prototype" #:preview-image img
 		(div
 		  (coming-soon)
 		  (link-to-patreon)))))
@@ -37,24 +38,24 @@
 	(rune-collection-cards)
 	))))
 
-(define (patreon-build-section)
+(define (patreon-authored-work-section)
   (list
     (h2 "Patron Only Builds")
     (p "These are CodeSpells worlds that are free to our supporters on Patreon.")
     (row
       (map (curry div class: "p-2 col-xs-12 col-md-6 col-lg-4")
-	   (patreon-builds)))))
+	   (patreon-authored-works)))))
 
-(define (demo-build-section)
+(define (demo-authored-work-section)
   (list 
-    (h2 "Tech Demo Builds")
-    (p "These are free CodeSpells tech demo builds.  You can download them, play them, and even re-distribute them to friends.")
-    (alert-warning (b "Note. ")  "We are currently adding new runes and will update these builds when we do.")
+    (h2 "Tech Demo Authored Works")
+    @p{These are free CodeSpells tech demo @(authored-works) You can download them, play them, and even re-distribute them to friends.}
+    (alert-warning (b "Note. ")  @p{We are currently adding new runes and will update these @(authored-works) when we do.})
     (row
       (map (curry div class: "p-2 col-xs-12 col-md-6 col-lg-4")
-	   (open-builds)))))
+	   (open-authored-works)))))
 
-(define (build-container)
+(define (authored-work-container)
   (container
     (h1 
       style: (properties
@@ -67,27 +68,26 @@
     (p "As we use the " (authoring-tools) " to create new tech demos, experiences, games, and educational environments, we'll add them below.")
 
 
-    (demo-build-section)
+    (demo-authored-work-section)
     (hr)
-    (patreon-build-section)
+    (patreon-authored-work-section)
     (hr)
-    (rune-collection-section)
-    ))
+    (rune-collection-section)))
 
 (define (big-screen-content)
   (normal-content
     (div class: show-only-on-md-and-up
 	 (codespells-navbar)
-	 (build-container))))
+	 (authored-work-container))))
 
 (define (mobile-content)
   (normal-content
     (div class: show-only-on-sm-and-below
 	 (codespells-navbar)
-	 (build-container))))
+	 (authored-work-container))))
 
-(define (builds.html)
-  (page builds.html
+(define (authored-works.html)
+  (page authored-works.html
 	(list
 	  (big-screen-content)
 	  (mobile-content))))
@@ -97,6 +97,6 @@
 		 (list 
 		   (bootstrap-files)
 		   (rune-collection-pages)
-		   (builds.html)
+		   (authored-works.html)
 		   images
 		   )))
