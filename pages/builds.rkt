@@ -9,8 +9,11 @@
   codespells/lore)
 
 (define-rune-collection-cards-and-pages 
-  (rune-collection-cards rune-collection-pages)
-  (rocks fire-particles ice-particles))
+    (rune-collection-cards rune-collection-pages)
+  (rocks 
+   fire-particles 
+   ice-particles
+   ))
 
 (define-works-cards
   (open-authored-works)
@@ -87,7 +90,7 @@
 	 (authored-work-container))))
 
 (define (authored-works.html)
-  (page authored-works.html
+  (page builds.html
 	(list
 	  (big-screen-content)
 	  (mobile-content))))

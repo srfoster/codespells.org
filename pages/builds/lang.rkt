@@ -34,31 +34,47 @@
 		    (rune-collection-name ...))
 		 #'(begin
 		     (define (rune-collection-cards)
-		       (map
-			 rune-collection-name->preview-card
-			 (list
-			   'rune-collection-name
-			   ...)))
+                       (list
+                         (require+add-image!+rune-collection->rune-collection-card 'rune-collection-name)
+                         ...))
 		     (define (rune-collection-pages)
 		       (list
 			 (require+create-page 'rune-collection-name)
 			 ...))
 		     ) ]))
 
+(define (require+add-image!+rune-collection->rune-collection-card collection-name)
+  (define lore (dynamic-require-lore collection-name))
+  
+  (define path
+    (~a "collections/" 
+        (lore->name-slug lore)
+        "/preview.png"))
+
+  (add-image! 
+    (rune-collection-name->preview-image/page 
+      #:path path 
+      collection-name))
+  (rune-collection-name->rune-collection-card 
+    #:preview-img-path path
+    collection-name)
+  )
+
 (define (require+add-image!+authored-work->authored-work-card authored-work-name)
   (define lore (dynamic-require-lore authored-work-name))
 
-  (let ()
-    ;The lack of symetry between these is ugly.
-    ;  Only one takes the work name
-    (add-image! 
-      (authored-work-name->preview-image/page 
-	#:path (list "works" 
-		     (lore->name-slug lore)
-		     "preview.png")
-	authored-work-name))
-    (authored-work-name->authored-work-card 
-      authored-work-name)))
+  (define path 
+    (~a "works/" 
+        (lore->name-slug lore)
+        "/preview.png"))
+
+  (add-image! 
+    (authored-work-name->preview-image/page 
+      #:path path 
+      authored-work-name))
+  (authored-work-name->authored-work-card 
+    #:preview-img-path path
+    authored-work-name))
 
 (define (require+create-page authored-work-name)
   (define lore (dynamic-require-lore authored-work-name))
