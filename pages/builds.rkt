@@ -19,11 +19,11 @@
 
 (define (patreon-authored-works)
   (list
-    (authored-work-card "Rolling Hills" img
+    (authored-work-card #:name "Rolling Hills" #:preview-image img
 		(div
 		  (coming-soon)
 		  (link-to-patreon)))
-    (authored-work-card "Multiplayer Prototype" img
+    (authored-work-card #:name "Multiplayer Prototype" #:preview-image img
 		(div
 		  (coming-soon)
 		  (link-to-patreon)))))

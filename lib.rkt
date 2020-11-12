@@ -98,7 +98,7 @@
       "blog.html"
       "Blog")
     (nav-link 
-      "builds.html"
+      "authored-works.html"
       "Downloads")
     ))
 
@@ -106,7 +106,7 @@
 			   "Builds Page"
 			   )
 			 . content)
-  (a href: "/builds.html" 
+  (a href: "/authored-works.html" 
      main
      content))
 

@@ -52,12 +52,12 @@
     ;The lack of symetry between these is ugly.
     ;  Only one takes the work name
     (add-image! 
-      (authored-work-lore->preview-image/page 
+      (authored-work-name->preview-image/page 
 	#:path (list "works" 
 		     (lore->name-slug lore)
 		     "preview.png")
 	authored-work-name))
-    (authored-work-lore->authored-work-card 
+    (authored-work-name->authored-work-card 
       authored-work-name)))
 
 (define (require+create-page authored-work-name)
@@ -66,7 +66,7 @@
 				(codespells-navbar)
 				c)))
   (let ()
-    (rune-collection-lore->rune-collection/page
+    (rune-collection-name->rune-collection/page
       authored-work-name
       #:path 
       (list "collections" (lore->name-slug lore) "index.html")
