@@ -12,8 +12,7 @@
     (rune-collection-cards rune-collection-pages)
   (rocks 
    fire-particles 
-   ice-particles
-   ))
+   ice-particles))
 
 (define-works-cards
   (open-authored-works)

@@ -3,8 +3,7 @@
 ;Just put stuff here that is for interfacing
 ;  with codespells/lore but specifically for 
 ;  constructing this site
-;If it's related to the display of lore in general,
-;  it should go in codespells/lore
+;If it's related to the display of lore in general, ;  it should go in codespells/lore
 
 
 (provide (all-from-out codespells/lore)
@@ -45,16 +44,26 @@
 
 (define (require+add-image!+rune-collection->rune-collection-card collection-name)
   (define lore (dynamic-require-lore collection-name))
-  
+
+  (define code-demo-media 
+    (with-handlers ([exn:fail? (thunk* #f)])
+		   (dynamic-require  
+		     (string->symbol
+		       (~a collection-name "/lore")) 
+		     'media)))
+
+  (when code-demo-media
+    (map add-image! code-demo-media))
+
   (define path
     (~a "collections/" 
         (lore->name-slug lore)
         "/preview.png"))
-
   (add-image! 
     (rune-collection-name->preview-image/page 
       #:path path 
       collection-name))
+
   (rune-collection-name->rune-collection-card 
     #:preview-img-path path
     collection-name)
