@@ -47,3 +47,9 @@
 	(list
 	  (big-screen-content)
 	  (mobile-content))))
+
+(module+ main
+  (render #:to "out"
+	  (list
+	    (all-post-pages)
+	    (blog.html))))

@@ -37,6 +37,7 @@
   (list
     (h2 "Rune Collections")
     (p "Currently, you gain access to one of these collections by downloading a " (authored-work) " that contains it.  In the future, you will be able to add Rune Collections to " (authored-works) " at runtime (i.e. modding).")
+    (note "We are in the process of adding these Rune Collections to " @(authored-works))
     (row
       (map 
 	(curry div class: "p-2 col-xs-12 col-md-6 col-lg-4")
@@ -92,16 +93,17 @@
 	 (authored-work-container))))
 
 (define (authored-works.html)
-  (page builds.html
-	(list
-	  (big-screen-content)
-	  (mobile-content))))
+  (list
+    (rune-collection-pages)
+    (page builds.html
+	  (list
+	    (big-screen-content)
+	    (mobile-content)))))
 
 (module+ main
 	 (render #:to "out"
 		 (list 
 		   (bootstrap-files)
-		   (rune-collection-pages)
 		   (authored-works.html)
 		   images
 		   )))

@@ -1,6 +1,6 @@
 #lang racket
 
-(provide index.html blog.html builds.html)
+(provide index.html blog.html authored-works.html)
 
 (require 
   "./pages/index.rkt"
