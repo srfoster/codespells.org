@@ -13,7 +13,9 @@
   (;cabin-items
    rocks 
    fire-particles 
-   ice-particles))
+   ice-particles
+   hierarchy
+   ))
 
 (define-works-cards
   (open-authored-works)

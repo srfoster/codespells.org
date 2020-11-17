@@ -55,34 +55,34 @@
   (when code-demo-media
     (map add-image! code-demo-media))
 
-  (define path
-    (~a "collections/" 
-        (lore->name-slug lore)
-        "/preview.png"))
-  (add-image! 
-    (rune-collection-name->preview-image/page 
-      #:path path 
-      collection-name))
-
   (rune-collection-name->rune-collection-card 
-    #:preview-img-path path
     collection-name)
   )
 
 (define (require+add-image!+authored-work->authored-work-card authored-work-name)
   (define lore (dynamic-require-lore authored-work-name))
+  
+  (define authored-work-media 
+    (with-handlers ([exn:fail? (thunk* #f)])
+		   (dynamic-require  
+		     (string->symbol
+		       (~a authored-work-name "/lore")) 
+		     'media)))
 
-  (define path 
+  (when authored-work-media
+    (map add-image! authored-work-media))
+
+#;(define path 
     (~a "works/" 
         (lore->name-slug lore)
         "/preview.png"))
 
-  (add-image! 
+  #;(add-image! 
     (authored-work-name->preview-image/page 
       #:path path 
       authored-work-name))
   (authored-work-name->authored-work-card 
-    #:preview-img-path path
+ ;   #:preview-img-path path
     authored-work-name))
 
 (define (require+create-page authored-work-name)
