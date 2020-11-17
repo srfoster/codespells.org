@@ -56,7 +56,7 @@
     (map add-image! code-demo-media))
 
   (define path
-    (~a "collections/" 
+    (~a "/collections/" 
         (lore->name-slug lore)
         "/preview.png"))
   (add-image! 

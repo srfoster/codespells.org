@@ -37,7 +37,9 @@
   note
   info
 
-  yt)
+  yt
+  
+  card-row)
 
 (require codespells-runes)
 (require (prefix-in h: 2htdp/image))
@@ -330,3 +332,9 @@
 
 (define (info . contents)
   (alert-primary contents))
+
+(define (card-row cards)
+  (row
+    (map
+      (curry div class: "p-2 col-xs-12 col-md-6 col-lg-4")
+      cards)))

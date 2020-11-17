@@ -8,14 +8,13 @@
 (define (codespells.org)
   (list
     old-rune-images
-    images
-    videos
     (bootstrap-files)
     (page favicon.ico (build-path "images" "favicon.ico"))
     (index.html)
     (blog.html)
-    (builds.html)
+    (authored-works.html)
     (all-post-pages)
-    ))
+    images
+    videos))
 
 (render #:to "out" (codespells.org))
