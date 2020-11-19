@@ -15,23 +15,24 @@
    fire-particles 
    ice-particles
    hierarchy
+   spawners
    ))
 
 (define-works-cards
   (open-authored-works)
-  (arena-world-demo-build cave-world-demo-build voxel-world-demo-build))
+  (arena-world-demo-build cave-world-demo-build voxel-world-demo-build forest-world-demo-build))
 
+(define-patron-only-works-cards
+  (patron-only-authored-works)
+  (log-cabin-world-demo-build))
 
 (define (patreon-authored-works)
-  (list
-    (authored-work-card #:name "Rolling Hills" #:preview-image img
-		(div
-		  (coming-soon)
-		  (link-to-patreon)))
-    (authored-work-card #:name "Multiplayer Prototype" #:preview-image img
-		(div
-		  (coming-soon)
-		  (link-to-patreon)))))
+  (append (patron-only-authored-works)
+          (list
+            (authored-work-card #:name "Multiplayer Prototype" #:preview-image img
+                                (div
+                                  (coming-soon)
+                                  (link-to-patreon))))))
 
 (define (rune-collection-section)
   (list

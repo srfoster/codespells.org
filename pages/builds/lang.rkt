@@ -8,6 +8,7 @@
 
 (provide (all-from-out codespells/lore)
 	 define-works-cards
+	 define-patron-only-works-cards
 	 define-rune-collection-cards-and-pages )
 
 (require codespells/lore
@@ -22,7 +23,18 @@
 		 #'(begin
 		     (define (work-cards-var-name)
 		       (list
-			 (require+add-image!+authored-work->authored-work-card 'work-name)
+			 (require+add-image!+authored-work->authored-work-card #:download-section (download-button 'work-name) 'work-name)
+			 
+			 ...)))
+		 ]))
+
+(define-syntax (define-patron-only-works-cards stx)
+  (syntax-parse stx
+		[(_ (work-cards-var-name) (work-name ...))
+		 #'(begin
+		     (define (work-cards-var-name)
+		       (list
+			 (require+add-image!+authored-work->authored-work-card #:download-section (link-to-patreon) 'work-name)
 			 
 			 ...)))
 		 ]))
@@ -59,7 +71,9 @@
     collection-name)
   )
 
-(define (require+add-image!+authored-work->authored-work-card authored-work-name)
+(define (require+add-image!+authored-work->authored-work-card authored-work-name
+                                                              #:download-section download-section
+                                                              )
   (define lore (dynamic-require-lore authored-work-name))
   
   (define authored-work-media 
@@ -72,17 +86,8 @@
   (when authored-work-media
     (map add-image! authored-work-media))
 
-#;(define path 
-    (~a "works/" 
-        (lore->name-slug lore)
-        "/preview.png"))
-
-  #;(add-image! 
-    (authored-work-name->preview-image/page 
-      #:path path 
-      authored-work-name))
-  (authored-work-name->authored-work-card 
- ;   #:preview-img-path path
+  (authored-work-name->authored-work-card
+    #:download-section download-section
     authored-work-name))
 
 (define (require+create-page authored-work-name)
