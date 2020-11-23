@@ -100,7 +100,38 @@
     (nav-link 
       "builds.html"
       "Downloads")
+    (my-social-media-link "facebook" "https://www.facebook.com/codespells") 
+    (my-social-media-link "twitter" "https://twitter.com/codespells") 
+    (my-social-media-link "youtube" "https://www.youtube.com/channel/UCxCGsdZJ16d1q_3SbtNMbtQ") 
+    (my-social-media-link "discord" "https://discord.gg/prsZZnm") 
     ))
+
+(define brown "rgba(255,255,255,.5)") 
+
+(define (my-social-media-link type to)
+  (cond [(string=? type "facebook")
+         (a href: to 
+            class: "fab fa-facebook-square fa-2x p-1"
+            style: (properties color: brown)
+            )]
+        [(string=? type "twitter")
+         (a href: to 
+            class: "fab fa-twitter-square fa-2x p-1"
+            style: (properties color: brown)
+         )]
+        [(string=? type "discord")
+         (a href: to 
+            class: "fab fa-discord fa-2x p-1"
+            style: (properties color: brown)
+         )]
+        [(string=? type "youtube")
+         (a href: to 
+            class: "fab fa-youtube fa-2x p-1"
+            style: (properties color: brown)
+         )]
+    )
+  )
+
 
 (define (link-to-builds (main 
 			   "Builds Page"
