@@ -34,13 +34,17 @@
 		       background-attachment:  "fixed"
 		       height: "100vh"
 		       width: "100vw"))
-	 (blog-container))))
+	 (blog-container)
+         (codespells-footer)
+         )))
 
 (define (mobile-content)
   (normal-content
     (div class: show-only-on-sm-and-below
 	 (codespells-navbar)
-	 (blog-container))))
+	 (blog-container)
+         (codespells-footer)
+         )))
 
 (define (blog.html)
   (page blog.html

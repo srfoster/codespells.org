@@ -1,7 +1,9 @@
 #lang at-exp racket
 
 (provide 
-  paralax overlay clear-card logo codespells-navbar
+  paralax overlay clear-card logo 
+  codespells-navbar
+  codespells-footer
   normal-content
   side-note
   link-to-builds
@@ -111,27 +113,92 @@
 (define (my-social-media-link type to)
   (cond [(string=? type "facebook")
          (a href: to 
+            target: "_blank"
             class: "fab fa-facebook-square fa-2x p-1"
             style: (properties color: brown)
             )]
         [(string=? type "twitter")
          (a href: to 
+            target: "_blank"
             class: "fab fa-twitter-square fa-2x p-1"
             style: (properties color: brown)
          )]
         [(string=? type "discord")
          (a href: to 
+            target: "_blank"
             class: "fab fa-discord fa-2x p-1"
             style: (properties color: brown)
          )]
         [(string=? type "youtube")
          (a href: to 
+            target: "_blank"
             class: "fab fa-youtube fa-2x p-1"
             style: (properties color: brown)
          )]
     )
   )
 
+(define (codespells-footer)
+  (list
+    (style/inline
+      @~a{
+      .fab {
+      padding: 5px;
+      font-size: 30px;
+      text-align: center;
+      text-decoration: none;
+      }
+
+      /* Add a hover effect if you want */
+      .fab:hover {
+      opacity: 0.7;
+      }
+      })
+    (footer class: "px-3 pt-4 bg-dark"
+            style: "margin-top: 80px; padding-bottom: 40px; z-index: -1;"
+            (container 
+              (row class: "justify-content-center"
+                   (col-md-3 class: "text-white"
+                             (h6 "CodeSpells")
+                             (ul class: "list-unstyled"
+                                 (li (link-to "./builds.html" (small "Downloads")))
+                                 (li (link-to "./blog.html" (small "Blog")))
+                                 ))
+                   (col-md-4 class: "text-white"
+                             (h6 "Support Us")
+                             (ul class: "list-unstyled"
+                                 (li (a href: "https://www.patreon.com/codespells" target: "_blank" (small "Join Our Patreon")))
+                                 (li (a href: "https://store.steampowered.com/app/324190/CodeSpells/" target: "_blank" (small "Purchase Previous Version on Steam")))
+                                 (li (a href: "https://codespells.us17.list-manage.com/subscribe?u=dbaae34bac76f17fad7bc6efd&id=a0f4e4cdc2" target: "_blank" (small "Join Our Mailing List")))
+                                 )
+                             (h6 "Contact Us")
+                             (ul class: "list-unstyled"
+                                 (li (small "codespells [at] thoughtstem [dot] com"))
+                                 ))
+                   (col-md-4 class: "text-white"
+                             (h6 "Follow Us")
+                             (ul class: "list-unstyled"
+                                 (li 
+                                   (row
+                                     (col-12
+                                       (a href: "https://www.facebook.com/codespells/"
+                                          style: (properties padding-left: "0px")
+                                          target: "_blank"
+                                          class: "fab fa-facebook-square fa-2x")
+                                       (a href: "https://twitter.com/codespells" 
+                                          class: "fab fa-twitter-square fa-2x"
+                                          target: "_blank"
+                                          )
+                                       (a href: "https://www.youtube.com/channel/UCxCGsdZJ16d1q_3SbtNMbtQ" 
+                                          target: "_blank"
+                                          class: "fab fa-youtube fa-2x")
+                                       (a href: "https://discord.gg/prsZZnm" 
+                                          target: "_blank"
+                                          class: "fab fa-discord fa-2x"))))
+                                 (li (br))
+                                 (li (small "ThoughtSTEM, LLC Copyright 2020"))
+                                 (li (small "All Rights Reserved"))
+                                 )))))))
 
 (define (link-to-builds (main 
 			   "Builds Page"

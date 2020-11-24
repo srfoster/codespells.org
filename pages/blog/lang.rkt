@@ -154,9 +154,9 @@
 	  (link-to-next-post post)
 	  (hr)
 	  (link-to-prev-post post)))
-      (br)
-      (br)
-      (br))))
+      )
+    (codespells-footer)
+    ))
 
 (define (preview-post post)
   (clear-card

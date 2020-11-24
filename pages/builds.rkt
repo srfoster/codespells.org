@@ -85,13 +85,17 @@
   (normal-content
     (div class: show-only-on-md-and-up
 	 (codespells-navbar)
-	 (authored-work-container))))
+	 (authored-work-container)
+         (codespells-footer)
+         )))
 
 (define (mobile-content)
   (normal-content
     (div class: show-only-on-sm-and-below
 	 (codespells-navbar)
-	 (authored-work-container))))
+	 (authored-work-container)
+         (codespells-footer)
+         )))
 
 (define (authored-works.html)
   (list

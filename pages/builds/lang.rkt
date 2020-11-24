@@ -94,7 +94,9 @@
   (define lore (dynamic-require-lore authored-work-name))
   (define wrapper (lambda (c) (normal-content
 				(codespells-navbar)
-				c)))
+				c
+                                (codespells-footer)
+                                )))
   (let ()
     (rune-collection-name->rune-collection/page
       authored-work-name
