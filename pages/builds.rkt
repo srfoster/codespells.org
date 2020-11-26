@@ -20,7 +20,14 @@
 
 (define-works-cards
   (open-authored-works)
-  (arena-world-demo-build cave-world-demo-build voxel-world-demo-build forest-world-demo-build))
+  (arena-world-demo-build 
+    cave-world-demo-build 
+    voxel-world-demo-build 
+    forest-world-demo-build
+    temple-world-demo-build
+    village-world-demo-build
+    polar-facility-world-demo-build
+    ))
 
 (define-patron-only-works-cards
   (patron-only-authored-works)
