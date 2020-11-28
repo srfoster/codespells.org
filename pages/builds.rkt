@@ -10,7 +10,7 @@
 
 (define-rune-collection-cards-and-pages 
     (rune-collection-cards rune-collection-pages)
-  (;cabin-items
+  (cabin-items
    rocks 
    fire-particles 
    ice-particles
