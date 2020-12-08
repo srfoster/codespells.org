@@ -56,7 +56,7 @@
 	   (list
 	     (a href: "http://store.steampowered.com/app/324190"
 		(fa-gamepad)
-		"Get the original on Steam")
+		" Get the original on Steam")
 	     (a href: (prefix/pathify "blog.html")
 		(fa-book)
 		" Read the Blog" )
@@ -66,7 +66,7 @@
 		(fa-envelope)
 		" Join the Mailing List" )
 	     (a href: "https://discord.gg/prsZZnm"
-		(fa-envelope)
+		(i class: "fas fa-user-friends")
 		" Join the Discord" ))))))
 
 (define (about-the-authors)
@@ -147,9 +147,19 @@
   (normal-content
     (div class: show-only-on-md-and-up
 	 (codespells-navbar)
+	 (div 
+	   style: (properties 
+		    position: 'fixed
+		    background-image: (~a "url("path:images/EarthBall.png")")
+		    background-size:  "cover"
+		    background-position:  "center"
+		    background-repeat:  "no-repeat"
+		    background-attachment:  "fixed"
+		    height: "100vh"
+		    width: "100vw"))
 	 (homepage-content)
-         (codespells-footer)
-         )))
+	 (codespells-footer)
+	 )))
 
 (define (mobile-content)
   (normal-content
@@ -166,3 +176,9 @@
           (list
             (big-screen-content)
             (mobile-content)))))
+
+(module+ main
+	 (render #:to "out" 
+		 (index.html)))
+
+
