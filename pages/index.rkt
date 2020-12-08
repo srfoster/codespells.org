@@ -2,133 +2,135 @@
 
 (provide index.html)
 
-(require "../lang.rkt")
+(require "../lang.rkt"
+         "blog/lang.rkt"
+         )
 
-(define (calls-to-action)
-  (container
-    (h2 
-      class: show-only-on-md-and-up 
-      "Once upon a time...")
+(define (trailer-video)
+  (card 
+    (card-header
+      (h2 "CodeSpells 2020 Trailer")
+      )
+    (card-body
+      (div class: "embed-responsive embed-responsive-16by9"
+           (yt "BqaAjgpsoW8")))))
 
-    (row
-      style: (properties padding-top: 20)
-      (col
-	class: show-only-on-md-and-up
-	(p "... there was CodeSpells.  Don't worry, you can still get it on Steam!"))
-      (col
-	class: show-only-on-md-and-up
-	(link-to-steam)))
+(define (about-the-game)
+  (card 
+    (card-header
+      (h2 "About the Game")
+      )
+    (card-body
+      @md{
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin turpis odio, sit amet convallis dolor vulputate eu. Maecenas scelerisque iaculis porttitor. Donec rutrum mauris in ullamcorper mollis. Maecenas enim nunc, suscipit pulvinar aliquet ut, tempus tincidunt erat. Donec pharetra dignissim posuere. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec pharetra suscipit velit non consequat. Morbi pretium eleifend purus at laoreet. Suspendisse tempus felis et imperdiet imperdiet. Nulla ipsum sem, porta sed suscipit sed, vulputate vel libero. Nunc tincidunt at nisi in aliquet. Sed vel molestie tortor, sed tincidunt ipsum. Proin a turpis augue. Curabitur facilisis est sed libero cursus dignissim. Vestibulum justo ligula, hendrerit ac lacus sit amet, iaculis dignissim lorem. 
+      })))
 
-    (row
-      style: (properties padding-top: 20)
-      (col
-	class: show-only-on-md-and-up
-	(p "Now, there is CodeSpells once again!  We're rebuilding it. It's insane!"))
+(define (links-card)
+  (card
+    (card-header
+      (h2 "Check it out!")
+      )
+    (card-body
+      (link-to-steam)
+      (a href: (prefix/pathify "blog.html")
+         (button-warning
+           (fa-book)
+           " Read the Blog" ))
+      (a href: "https://www.patreon.com/codespells" 
+         (button-primary
+           (fa-gem)
+           " Join our Patreon" )) 
+      (a href: "http://eepurl.com/hacdwD"
+         (button-info
+           (fa-envelope)
+           " Join the Mailing List" ))
+      (a href: "https://discord.gg/prsZZnm"
+         (button-danger
+           (fa-envelope)
+           " Join the Discord" ))
+      )
+    )
+  )
 
-      (col
-	(a href: (prefix/pathify "blog.html")
-	   (button-warning
-	     (fa-book)
-	     " Read the Blog" ))))
+(define (builds-card)
+  (card
+    (card-header
+      (h2 "Builds")
+      )
+    (card-body
+      (div
+        (row
+          (col-6
+            (p "Works: "))
+          (col-6
+            (p "7")
+            )
+          )
+        (row
+          (col-6
+            (p "Rune Collections: "))
+          (col-6
+            (p "4")
+            )
+          )
+        )
+      (link-to-builds)
+      )
+    )
+  )
 
-    (row
-      style: (properties padding-top: 20)
-      (col
-	class: show-only-on-md-and-up
-	(p "You can help co-author the CodeSpells development story by supporting us on Patreon.  (Spoiler alert: You're gonna get free stuff.)"))
+(define (recent-blog-posts)
+  (card
+    (card-header
+      (h2 "Recent Blog Posts")
+      )
+    (card-body
+      (p "Recent posts go here...")
+      )
+    ) 
+  )
 
-      (col
-	(a href: "https://www.patreon.com/codespells" 
-	   (button-primary
-	     (fa-gem)
-	     " Join our Patreon" ))))
-
-    (row
-      style: (properties padding-top: 20)
-      (col
-	class: show-only-on-md-and-up
-	(p "You can be the first to know when interesting things happen by joining our mailing list.  It's gluten free!"))
-
-      (col
-	(a href: "http://eepurl.com/hacdwD"
-	   (button-info
-	     (fa-envelope)
-	     " Join the Mailing List" ))))
-    
-    (row
-      style: (properties padding-top: 20)
-      (col
-	class: show-only-on-md-and-up
-	(p "Join the community; make friends; create together."))
-
-      (col
-	(a href: "https://discord.gg/prsZZnm"
-	   (button-danger
-	     (fa-envelope)
-	     " Join the Discord" ))))
-    
+(define (left-column)
+  (col-6
+    (trailer-video)     
+    (links-card)
+    (recent-blog-posts)
     ))
+
+(define (right-column)
+  (col-6
+   (about-the-game)
+   (builds-card)
+   ))
+
+(define (homepage-content)
+  (container
+    (row
+      (left-column) 
+      (right-column))
+    ) 
+  )
+
+(define (big-screen-content)
+  (normal-content
+    (div class: show-only-on-md-and-up
+	 (codespells-navbar)
+	 (homepage-content)
+         (codespells-footer)
+         )))
 
 (define (mobile-content)
   (normal-content
-    (div
-      class: show-only-on-sm-and-below
-      (paralax path:images/AtCliff.png 
-	       (div 
-		 (logo "40%"))
-	       
-	       (div
-		 style: 
-		 (properties padding-top: 10)
-		 (calls-to-action))
+    (div class: show-only-on-sm-and-below
+	 (codespells-navbar)
+	 (homepage-content)
+         (codespells-footer)
+         )))
 
-	       ))))
-
-(define (big-screen-content) 
-  (normal-content
-    (div class: show-only-on-md-and-up
-      @style/inline{
-      @"@"keyframes pulse {
-      0% {
-      padding-bottom: 0px
-      }
-      50% {
-      padding-bottom: 10px
-      }
-      100% {
-      padding-bottom: 0px
-      }
-      }
-      }
-      (paralax path:images/AtCliff.png 
-	       (div 
-		 style: 
-		 (properties 
-		   position: "absolute")
-		 (logo "50%"))
-	       (div
-		 style: 
-		 (properties 
-		   position: "absolute"
-		   color: "white" 
-		   text-align: "center"
-		   bottom: "0"
-		   width: "100%"
-		   'animation: "pulse 1s infinite")
-		 "(scroll down)"
-		 (div 
-		   font-size: 50
-		   (fa-angle-double-down))))
-      (overlay (calls-to-action))
-
-      (paralax path:images/ThroughGrass.png 
-	       (div 
-		 style: (properties position: "absolute"
-				    bottom: 0)
-		 (logo "50%"))))))
 
 (define (index.html)
   (page index.html
-	(list
-	  (big-screen-content)
-	  (mobile-content))))
+        (div
+          (list
+            (big-screen-content)
+            (mobile-content)))))
