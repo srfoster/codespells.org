@@ -3,113 +3,145 @@
 (provide index.html)
 
 (require "../lang.rkt"
+         "blog/posts.rkt"
          "blog/lang.rkt"
          )
 
-(define (trailer-video)
-  (card 
+(define (home-page-card #:title title . content)
+  (card class: "m-1 mt-2"
     (card-header
-      (h2 "CodeSpells 2020 Trailer")
-      )
+      (h2 title))
     (card-body
-      (div class: "embed-responsive embed-responsive-16by9"
-           (yt "BqaAjgpsoW8")))))
+      content)))
+
+(define (trailer-video)
+  (home-page-card #:title "Trailer"
+		  (div class: "embed-responsive embed-responsive-16by9"
+		       (yt "BqaAjgpsoW8"))))
 
 (define (about-the-game)
-  (card 
-    (card-header
-      (h2 "About the Game")
-      )
-    (card-body
+  (home-page-card #:title "About the Project"
       @md{
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin turpis odio, sit amet convallis dolor vulputate eu. Maecenas scelerisque iaculis porttitor. Donec rutrum mauris in ullamcorper mollis. Maecenas enim nunc, suscipit pulvinar aliquet ut, tempus tincidunt erat. Donec pharetra dignissim posuere. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec pharetra suscipit velit non consequat. Morbi pretium eleifend purus at laoreet. Suspendisse tempus felis et imperdiet imperdiet. Nulla ipsum sem, porta sed suscipit sed, vulputate vel libero. Nunc tincidunt at nisi in aliquet. Sed vel molestie tortor, sed tincidunt ipsum. Proin a turpis augue. Curabitur facilisis est sed libero cursus dignissim. Vestibulum justo ligula, hendrerit ac lacus sit amet, iaculis dignissim lorem. 
-      })))
+      @b{CodeSpells is a game changer.}
+
+      Like... literally.  You craft spells to change the game.
+
+      Our ambitious goal is that CodeSpells will have the deepest, 
+      most interesting magic system of any video game ever created,
+      giving you the ability to completely alter the game you're
+      in using nothing more than your knowledge of magic.
+
+      @b{But CodeSpells is more than a video game.}
+
+      Like.. literally.  We already have more than one tech demo on 
+      our @(link-to-builds) page. 
+
+      But also... CodeSpells is more than a game because it's a 
+      platform.  
+      Our goal is that anyone should be able to use the @(authoring-tools) to 
+      create @(authored-works): games, experiences, and educational environments 
+      -- all of which can be reprogrammed "from within" (via spells) and 
+      "from without" (via mods).
+
+      We hope you'll follow our progress on the blog, the @(link-to-builds) page, 
+      and @(a href: "https://www.patreon.com/codespells" "our Patreon").
+
+      }))
 
 (define (links-card)
-  (card
-    (card-header
-      (h2 "Check it out!")
-      )
-    (card-body
-      (link-to-steam)
-      (a href: (prefix/pathify "blog.html")
-         (button-warning
-           (fa-book)
-           " Read the Blog" ))
-      (a href: "https://www.patreon.com/codespells" 
-         (button-primary
-           (fa-gem)
-           " Join our Patreon" )) 
-      (a href: "http://eepurl.com/hacdwD"
-         (button-info
-           (fa-envelope)
-           " Join the Mailing List" ))
-      (a href: "https://discord.gg/prsZZnm"
-         (button-danger
-           (fa-envelope)
-           " Join the Discord" ))
-      )
-    )
-  )
+  (home-page-card 
+    #:title "Handy Links"
+    (ul
+      (map li
+	   (list
+	     (a href: "http://store.steampowered.com/app/324190"
+		(fa-gamepad)
+		"Get the original on Steam")
+	     (a href: (prefix/pathify "blog.html")
+		(fa-book)
+		" Read the Blog" )
+	     (a href: "https://www.patreon.com/codespells" 
+		(fa-gem) " Join our Patreon" )
+	     (a href: "http://eepurl.com/hacdwD"
+		(fa-envelope)
+		" Join the Mailing List" )
+	     (a href: "https://discord.gg/prsZZnm"
+		(fa-envelope)
+		" Join the Discord" ))))))
+
+(define (about-the-authors)
+  (home-page-card 
+    #:title "About the Authors"
+    @md{
+    **Stephen R. Foster, Ph.D.** and **Lindsey D. Handley, Ph.D.** 
+
+    Together they, founded @(a href: "https://www.thoughtstem.com" "ThoughtSTEM"),
+    wrote a book called @(a href: "https://dont-teach.com" "Don't Teach Coding"),
+    and currently work full-time on CodeSpells.
+    }
+    ))
 
 (define (builds-card)
-  (card
-    (card-header
-      (h2 "Builds")
+  (home-page-card 
+    #:title "Builds"
+    (div
+      (row
+	(col-6
+	  (p "Works: "))
+	(col-6
+	  (p "7")
+	  )
+	)
+      (row
+	(col-6
+	  (p "Rune Collections: "))
+	(col-6
+	  (p "4")
+	  )
+	)
       )
-    (card-body
-      (div
-        (row
-          (col-6
-            (p "Works: "))
-          (col-6
-            (p "7")
-            )
-          )
-        (row
-          (col-6
-            (p "Rune Collections: "))
-          (col-6
-            (p "4")
-            )
-          )
-        )
-      (link-to-builds)
-      )
-    )
-  )
+    (link-to-builds)))
 
 (define (recent-blog-posts)
-  (card
-    (card-header
-      (h2 "Recent Blog Posts")
-      )
-    (card-body
-      (p "Recent posts go here...")
-      )
-    ) 
-  )
+  (local-require gregor)
+  (home-page-card #:title "The Blog"
+      (p "Recent posts:")
+      (ul
+	(map
+	  (compose li
+		   (lambda (p)
+		     (list
+		       (a href: ""
+			  (post-title p)
+			  " ")
+
+		       (~t (post-date p)
+			   "(E, MMMM d, y)"))))
+	  (take
+	    (all-posts)
+	    4)))
+      (a href: "/blog.html"
+	 "All Posts")))
 
 (define (left-column)
-  (col-6
+  (div class: "col p-0"
     (trailer-video)     
     (links-card)
     (recent-blog-posts)
     ))
 
 (define (right-column)
-  (col-6
+  (div class: "col p-0"
    (about-the-game)
    (builds-card)
+   (about-the-authors)
    ))
 
 (define (homepage-content)
   (container
     (row
       (left-column) 
-      (right-column))
-    ) 
-  )
+      (right-column))))
 
 (define (big-screen-content)
   (normal-content
