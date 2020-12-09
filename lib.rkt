@@ -96,16 +96,15 @@
 (define (codespells-navbar)
   (navbar
     #:brand (logo 100)
-    (nav-link 
-      "blog.html"
-      "Blog")
-    (nav-link 
-      "builds.html"
-      "Downloads")
-    (my-social-media-link "facebook" "https://www.facebook.com/codespells") 
-    (my-social-media-link "twitter" "https://twitter.com/codespells") 
-    (my-social-media-link "youtube" "https://www.youtube.com/channel/UCxCGsdZJ16d1q_3SbtNMbtQ") 
-    (my-social-media-link "discord" "https://discord.gg/prsZZnm") 
+    (nav-link "blog.html" "Blog")
+    (nav-link "builds.html" "Downloads")
+
+    (div class: show-only-on-md-and-up
+	 (my-social-media-link "facebook" "https://www.facebook.com/codespells") 
+	 (my-social-media-link "twitter" "https://twitter.com/codespells") 
+	 (my-social-media-link "youtube" "https://www.youtube.com/channel/UCxCGsdZJ16d1q_3SbtNMbtQ") 
+	 (my-social-media-link "discord" "https://discord.gg/prsZZnm"))
+
     ))
 
 (define brown "rgba(255,255,255,.5)") 
@@ -155,7 +154,7 @@
       }
       })
     (footer class: "px-3 pt-4 bg-dark"
-            style: "margin-top: 80px; padding-bottom: 40px; z-index: -1;"
+            style: "margin-top: 80px; padding-bottom: 40px; position: relative;"
             (container 
               (row class: "justify-content-center"
                    (col-md-3 class: "text-white"
