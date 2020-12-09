@@ -17,6 +17,8 @@
 (define (trailer-video)
   (home-page-card #:title "Trailer"
 		  (div class: "embed-responsive embed-responsive-16by9"
+		       @alert-primary{Coming Soon!}
+		       #;
 		       (yt "BqaAjgpsoW8"))))
 
 (define (about-the-game)
@@ -28,17 +30,18 @@
 
       Our ambitious goal is that CodeSpells will have the deepest, 
       most interesting magic system of any video game ever created,
+      full of linguistic nuance and enchanted toys,
       giving you the ability to completely alter the game you're
       in using nothing more than your knowledge of magic.
 
       @b{But CodeSpells is more than a video game.}
 
-      Like.. literally.  We already have more than one tech demo on 
-      our @(link-to-builds) page. 
+      Like.. literally.  It's more than **one** video game.  We already have several 
+      tech demo sandboxes on our @(link-to-builds) page. 
 
       But also... CodeSpells is more than a game because it's a 
       platform.  
-      Our goal is that anyone should be able to use the @(authoring-tools) to 
+      Our vision is that anyone can use the @(authoring-tools) to 
       create @(authored-works): games, experiences, and educational environments 
       -- all of which can be reprogrammed "from within" (via spells) and 
       "from without" (via mods).
@@ -75,7 +78,7 @@
     @md{
     **Stephen R. Foster, Ph.D.** and **Lindsey D. Handley, Ph.D.** 
 
-    Together they, founded @(a href: "https://www.thoughtstem.com" "ThoughtSTEM"),
+    Together they founded @(a href: "https://www.thoughtstem.com" "ThoughtSTEM"),
     wrote a book called @(a href: "https://dont-teach.com" "Don't Teach Coding"),
     and currently work full-time on CodeSpells.
     }
@@ -111,7 +114,7 @@
 	  (compose li
 		   (lambda (p)
 		     (list
-		       (a href: ""
+		       (a href: (prefix/pathify (post->path p))
 			  (post-title p)
 			  " ")
 
@@ -165,7 +168,8 @@
   (normal-content
     (div class: show-only-on-sm-and-below
 	 (codespells-navbar)
-	 (homepage-content)
+	 (left-column)
+	 (right-column)
          (codespells-footer)
          )))
 
