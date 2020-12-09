@@ -75,7 +75,7 @@
     @md{
     **Stephen R. Foster, Ph.D.** and **Lindsey D. Handley, Ph.D.** 
 
-    Together they, founded @(a href: "https://www.thoughtstem.com" "ThoughtSTEM"),
+    Together they founded @(a href: "https://www.thoughtstem.com" "ThoughtSTEM"),
     wrote a book called @(a href: "https://dont-teach.com" "Don't Teach Coding"),
     and currently work full-time on CodeSpells.
     }
@@ -96,7 +96,7 @@
 	(col-6
 	  (p "Rune Collections: "))
 	(col-6
-	  (p "4")
+	  (p "6")
 	  )
 	)
       )
