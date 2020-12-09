@@ -2,133 +2,187 @@
 
 (provide index.html)
 
-(require "../lang.rkt")
+(require "../lang.rkt"
+         "blog/posts.rkt"
+         "blog/lang.rkt"
+         )
 
-(define (calls-to-action)
-  (container
-    (h2 
-      class: show-only-on-md-and-up 
-      "Once upon a time...")
+(define (home-page-card #:title title . content)
+  (card class: "m-1 mt-2"
+    (card-header
+      (h2 title))
+    (card-body
+      content)))
 
-    (row
-      style: (properties padding-top: 20)
-      (col
-	class: show-only-on-md-and-up
-	(p "... there was CodeSpells.  Don't worry, you can still get it on Steam!"))
-      (col
-	class: show-only-on-md-and-up
-	(link-to-steam)))
+(define (trailer-video)
+  (home-page-card #:title "Trailer"
+		  (div class: "embed-responsive embed-responsive-16by9"
+		       @alert-primary{Coming Soon!}
+		       #;
+		       (yt "BqaAjgpsoW8"))))
 
-    (row
-      style: (properties padding-top: 20)
-      (col
-	class: show-only-on-md-and-up
-	(p "Now, there is CodeSpells once again!  We're rebuilding it. It's insane!"))
+(define (about-the-game)
+  (home-page-card #:title "About the Project"
+      @md{
+      @b{CodeSpells is a game changer.}
 
-      (col
-	(a href: (prefix/pathify "blog.html")
-	   (button-warning
-	     (fa-book)
-	     " Read the Blog" ))))
+      Like... literally.  You craft spells to change the game.
 
-    (row
-      style: (properties padding-top: 20)
-      (col
-	class: show-only-on-md-and-up
-	(p "You can help co-author the CodeSpells development story by supporting us on Patreon.  (Spoiler alert: You're gonna get free stuff.)"))
+      Our ambitious goal is that CodeSpells will have the deepest, 
+      most interesting magic system of any video game ever created,
+      full of linguistic nuance and enchanted toys,
+      giving you the ability to completely alter the game you're
+      in using nothing more than your knowledge of magic.
 
-      (col
-	(a href: "https://www.patreon.com/codespells" 
-	   (button-primary
-	     (fa-gem)
-	     " Join our Patreon" ))))
+      @b{But CodeSpells is more than a video game.}
 
-    (row
-      style: (properties padding-top: 20)
-      (col
-	class: show-only-on-md-and-up
-	(p "You can be the first to know when interesting things happen by joining our mailing list.  It's gluten free!"))
+      Like.. literally.  It's more than **one** video game.  We already have several 
+      tech demo sandboxes on our @(link-to-builds) page. 
 
-      (col
-	(a href: "http://eepurl.com/hacdwD"
-	   (button-info
-	     (fa-envelope)
-	     " Join the Mailing List" ))))
-    
-    (row
-      style: (properties padding-top: 20)
-      (col
-	class: show-only-on-md-and-up
-	(p "Join the community; make friends; create together."))
+      But also... CodeSpells is more than a game because it's a 
+      platform.  
+      Our vision is that anyone can use the @(authoring-tools) to 
+      create @(authored-works): games, experiences, and educational environments 
+      -- all of which can be reprogrammed "from within" (via spells) and 
+      "from without" (via mods).
 
-      (col
-	(a href: "https://discord.gg/prsZZnm"
-	   (button-danger
-	     (fa-envelope)
-	     " Join the Discord" ))))
-    
+      We hope you'll follow our progress on the blog, the @(link-to-builds) page, 
+      and @(a href: "https://www.patreon.com/codespells" "our Patreon").
+
+      }))
+
+(define (links-card)
+  (home-page-card 
+    #:title "Handy Links"
+    (ul
+      (map li
+	   (list
+	     (a href: "http://store.steampowered.com/app/324190"
+		(fa-gamepad)
+		" Get the original on Steam")
+	     (a href: (prefix/pathify "blog.html")
+		(fa-book)
+		" Read the Blog" )
+	     (a href: "https://www.patreon.com/codespells" 
+		(fa-gem) " Join our Patreon" )
+	     (a href: "http://eepurl.com/hacdwD"
+		(fa-envelope)
+		" Join the Mailing List" )
+	     (a href: "https://discord.gg/prsZZnm"
+		(i class: "fas fa-user-friends")
+		" Join the Discord" ))))))
+
+(define (about-the-authors)
+  (home-page-card 
+    #:title "About the Authors"
+    @md{
+    **Stephen R. Foster, Ph.D.** and **Lindsey D. Handley, Ph.D.** 
+
+    Together they founded @(a href: "https://www.thoughtstem.com" "ThoughtSTEM"),
+    wrote a book called @(a href: "https://dont-teach.com" "Don't Teach Coding"),
+    and currently work full-time on CodeSpells.
+    }
     ))
+
+(define (builds-card)
+  (home-page-card 
+    #:title "Builds"
+    (div
+      (row
+	(col-6
+	  (p "Works: "))
+	(col-6
+	  (p "7")
+	  )
+	)
+      (row
+	(col-6
+	  (p "Rune Collections: "))
+	(col-6
+	  (p "4")
+	  )
+	)
+      )
+    (link-to-builds)))
+
+(define (recent-blog-posts)
+  (local-require gregor)
+  (home-page-card #:title "The Blog"
+      (p "Recent posts:")
+      (ul
+	(map
+	  (compose li
+		   (lambda (p)
+		     (list
+		       (a href: (prefix/pathify (post->path p))
+			  (post-title p)
+			  " ")
+
+		       (~t (post-date p)
+			   "(E, MMMM d, y)"))))
+	  (take
+	    (all-posts)
+	    4)))
+      (a href: "/blog.html"
+	 "All Posts")))
+
+(define (left-column)
+  (div class: "col p-0"
+    (trailer-video)     
+    (links-card)
+    (recent-blog-posts)
+    ))
+
+(define (right-column)
+  (div class: "col p-0"
+   (about-the-game)
+   (builds-card)
+   (about-the-authors)
+   ))
+
+(define (homepage-content)
+  (container
+    (row
+      (left-column) 
+      (right-column))))
+
+(define (big-screen-content)
+  (normal-content
+    (div class: show-only-on-md-and-up
+	 (codespells-navbar)
+	 (div 
+	   style: (properties 
+		    position: 'fixed
+		    background-image: (~a "url("path:images/EarthBall.png")")
+		    background-size:  "cover"
+		    background-position:  "center"
+		    background-repeat:  "no-repeat"
+		    background-attachment:  "fixed"
+		    height: "100vh"
+		    width: "100vw"))
+	 (homepage-content)
+	 (codespells-footer)
+	 )))
 
 (define (mobile-content)
   (normal-content
-    (div
-      class: show-only-on-sm-and-below
-      (paralax path:images/AtCliff.png 
-	       (div 
-		 (logo "40%"))
-	       
-	       (div
-		 style: 
-		 (properties padding-top: 10)
-		 (calls-to-action))
+    (div class: show-only-on-sm-and-below
+	 (codespells-navbar)
+	 (left-column)
+	 (right-column)
+         (codespells-footer)
+         )))
 
-	       ))))
-
-(define (big-screen-content) 
-  (normal-content
-    (div class: show-only-on-md-and-up
-      @style/inline{
-      @"@"keyframes pulse {
-      0% {
-      padding-bottom: 0px
-      }
-      50% {
-      padding-bottom: 10px
-      }
-      100% {
-      padding-bottom: 0px
-      }
-      }
-      }
-      (paralax path:images/AtCliff.png 
-	       (div 
-		 style: 
-		 (properties 
-		   position: "absolute")
-		 (logo "50%"))
-	       (div
-		 style: 
-		 (properties 
-		   position: "absolute"
-		   color: "white" 
-		   text-align: "center"
-		   bottom: "0"
-		   width: "100%"
-		   'animation: "pulse 1s infinite")
-		 "(scroll down)"
-		 (div 
-		   font-size: 50
-		   (fa-angle-double-down))))
-      (overlay (calls-to-action))
-
-      (paralax path:images/ThroughGrass.png 
-	       (div 
-		 style: (properties position: "absolute"
-				    bottom: 0)
-		 (logo "50%"))))))
 
 (define (index.html)
   (page index.html
-	(list
-	  (big-screen-content)
-	  (mobile-content))))
+        (div
+          (list
+            (big-screen-content)
+            (mobile-content)))))
+
+(module+ main
+	 (render #:to "out" 
+		 (index.html)))
+
+

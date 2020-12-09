@@ -2,10 +2,14 @@
 
 (require webapp/js 
 	 "./lang.rkt"
-	 "./pages/blog/lang.rkt"
-	 "./pages.rkt")
+	 "./pages/index.rkt"
+         "./pages/blog/lang.rkt"
+	 "./pages.rkt"
+         )
 
-(define (codespells.org)
+(provide site)
+
+(define (site)
   (list
     old-rune-images
     (bootstrap-files)
@@ -17,4 +21,4 @@
     images
     videos))
 
-(render #:to "out" (codespells.org))
+(render #:to "out" (site))
