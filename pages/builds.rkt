@@ -63,7 +63,7 @@
 (define (demo-authored-work-section)
   (list 
     (h2 "Tech Demo Authored Works")
-    @p{These are free CodeSpells tech demo @(authored-works) You can download them, play them, and even re-distribute them to friends.}
+    @p{These are free CodeSpells tech demo @(authored-works). You can download them, play them, and even re-distribute them to friends.}
     (alert-warning (b "Note. ")  @p{We are currently adding new runes and will update these @(authored-works) when we do.})
     (row
       (map (curry div class: "p-2 col-xs-12 col-md-6 col-lg-4")

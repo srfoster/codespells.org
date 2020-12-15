@@ -15,11 +15,9 @@
       content)))
 
 (define (trailer-video)
-  (home-page-card #:title "Trailer"
+  (home-page-card #:title "Latest Spell Reel"
 		  (div class: "embed-responsive embed-responsive-16by9"
-		       @alert-primary{Coming Soon!}
-		       #;
-		       (yt "BqaAjgpsoW8"))))
+		       (yt "Sfjy8Y_mThw"))))
 
 (define (about-the-game)
   (home-page-card #:title "About the Project"
@@ -53,24 +51,25 @@
 
 (define (links-card)
   (home-page-card 
-    #:title "Handy Links"
+    #:title "Community Links"
     (ul
       (map li
 	   (list
+	     (a href: "https://www.patreon.com/codespells" 
+		(fa-gem) " Join our Patreon" )
+	     (a href: "https://discord.gg/prsZZnm"
+		(i class: "fas fa-user-friends")
+		" Join the Discord" )     
 	     (a href: "http://store.steampowered.com/app/324190"
 		(fa-gamepad)
 		" Get the original on Steam")
-	     (a href: (prefix/pathify "blog.html")
-		(fa-book)
-		" Read the Blog" )
-	     (a href: "https://www.patreon.com/codespells" 
-		(fa-gem) " Join our Patreon" )
 	     (a href: "http://eepurl.com/hacdwD"
 		(fa-envelope)
 		" Join the Mailing List" )
-	     (a href: "https://discord.gg/prsZZnm"
-		(i class: "fas fa-user-friends")
-		" Join the Discord" ))))))
+	     (a href: (prefix/pathify "blog.html")
+		(fa-book)
+		" Read the Blog" )
+             )))))
 
 (define (about-the-authors)
   (home-page-card 
@@ -107,8 +106,8 @@
 
 (define (recent-blog-posts)
   (local-require gregor)
-  (home-page-card #:title "The Blog"
-      (p "Recent posts:")
+  (home-page-card #:title "Blog"
+      (p "Latest Blog Posts:")
       (ul
 	(map
 	  (compose li
