@@ -3,6 +3,7 @@
 (require webapp/js 
 	 "./lang.rkt"
 	 "./pages/index.rkt"
+	 "./pages/in-game.rkt"
          "./pages/blog/lang.rkt"
 	 "./pages.rkt"
          )
@@ -15,6 +16,7 @@
     (bootstrap-files)
     (page favicon.ico (build-path "images" "favicon.ico"))
     (index.html)
+    (in-game.html)
     (blog.html)
     (authored-works.html)
     (all-post-pages)

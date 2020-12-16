@@ -1,6 +1,8 @@
 #lang at-exp racket 
 
-(provide index.html)
+(provide index.html
+         index.html-content
+         )
 
 (require "../lang.rkt"
          "blog/posts.rkt"
@@ -175,10 +177,13 @@
 
 (define (index.html)
   (page index.html
-        (div
-          (list
-            (big-screen-content)
-            (mobile-content)))))
+        (index.html-content)))
+
+(define (index.html-content)         
+  (div
+    (list
+      (big-screen-content)
+      (mobile-content))))  
 
 (module+ main
 	 (render #:to "out" 
