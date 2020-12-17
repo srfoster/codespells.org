@@ -2,6 +2,12 @@
 
 (provide index.html
          index.html-content
+         about-the-authors
+         trailer-video
+         links-card
+         recent-blog-posts
+         codespells-navbar 
+         homepage-card
          )
 
 (require "../lang.rkt"
@@ -9,7 +15,7 @@
          "blog/lang.rkt"
          )
 
-(define (home-page-card #:title title . content)
+(define (homepage-card #:title title . content)
   (card class: "m-1 mt-2"
     (card-header
       (h2 title))
@@ -17,12 +23,12 @@
       content)))
 
 (define (trailer-video)
-  (home-page-card #:title "Latest Spell Reel"
+  (homepage-card #:title "Latest Spell Reel"
 		  (div class: "embed-responsive embed-responsive-16by9"
 		       (yt "Sfjy8Y_mThw"))))
 
 (define (about-the-game)
-  (home-page-card #:title "About the Project"
+  (homepage-card #:title "About the Project"
       @md{
       @b{CodeSpells is a game changer.}
 
@@ -52,7 +58,7 @@
       }))
 
 (define (links-card)
-  (home-page-card 
+  (homepage-card 
     #:title "Community Links"
     (ul
       (map li
@@ -74,19 +80,21 @@
              )))))
 
 (define (about-the-authors)
-  (home-page-card 
+  (homepage-card 
     #:title "About the Authors"
     @md{
     **Stephen R. Foster, Ph.D.** and **Lindsey D. Handley, Ph.D.** 
 
-    Together they founded @(a href: "https://www.thoughtstem.com" "ThoughtSTEM"),
+    We founded @(a href: "https://www.thoughtstem.com" "ThoughtSTEM"),
     wrote a book called @(a href: "https://dont-teach.com" "Don't Teach Coding"),
-    and currently work full-time on CodeSpells.
+    and currently work full-time on CodeSpells. Patreon is currently our only source of funding. So we could really use your help: 
+    @(a href: "https://www.patreon.com/codespells" 
+       (fa-gem) " Join our Patreon" )
     }
     ))
 
 (define (builds-card)
-  (home-page-card 
+  (homepage-card 
     #:title "Builds"
     (div
       (row
@@ -108,7 +116,7 @@
 
 (define (recent-blog-posts)
   (local-require gregor)
-  (home-page-card #:title "Blog"
+  (homepage-card #:title "Blog"
       (p "Latest Blog Posts:")
       (ul
 	(map
