@@ -4,7 +4,8 @@
          "../lang.rkt" 
          "blog/posts.rkt"
          "blog/lang.rkt"
-        )
+         (prefix-in html: website)
+         )
 
 (define (in-game.html) 
   (page in-game.html
@@ -26,14 +27,13 @@
                                     width: 300
                                     )
                  (logo 300))
-            (homepage-card #:title "Welcome to CodeSpells!"
-            (p "After you close this welcome page, you can press C at any time to open your spellcrafting editor.")
-            (p "Also, we could use your help: "
-               (a href: "https://www.patreon.com/codespells" 
-                  (fa-gem) " Join our Patreon"))
-            )
             (row 
               (div class: "col"
+                   (homepage-card #:title "Welcome to CodeSpells!"
+                                  (p "After you close this welcome page, you can press C at any time to open your spellcrafting editor.")
+                                  (p "Also, we could use your help. Click the button above to support us on Patreon (patreon.com/codespells)."
+                                     )
+                                  )
                    (trailer-video)     
                    )
               (div class: "col"

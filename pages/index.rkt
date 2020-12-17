@@ -87,9 +87,7 @@
 
     We founded @(a href: "https://www.thoughtstem.com" "ThoughtSTEM"),
     wrote a book called @(a href: "https://dont-teach.com" "Don't Teach Coding"),
-    and currently work full-time on CodeSpells. Patreon is currently our only source of funding. So we could really use your help: 
-    @(a href: "https://www.patreon.com/codespells" 
-       (fa-gem) " Join our Patreon" )
+    and currently work full-time on CodeSpells. Patreon is currently our only source of funding. So we could really use your help! Please support us. 
     }
     ))
 
