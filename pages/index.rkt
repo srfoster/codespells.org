@@ -13,7 +13,7 @@
 (require "../lang.rkt"
          "blog/posts.rkt"
          "blog/lang.rkt"
-         )
+         (prefix-in html: website))
 
 (define (homepage-card #:title title . content)
   (card class: "m-1 mt-2"
@@ -26,6 +26,42 @@
   (homepage-card #:title "Latest Spell Reel"
 		  (div class: "embed-responsive embed-responsive-16by9"
 		       (yt "Sfjy8Y_mThw"))))
+
+(define (twitch-card)
+  (homepage-card #:title "Development Live Stream"
+                 (div class: "twitch"
+                      (div class: "twitch-video embed-responsive embed-responsive-16by9" 
+                           (iframe
+                             src: "https://player.twitch.tv/?channel=codespells&parent=localhost&autoplay=false"
+                             'frameborder: "0"
+                             'scrolling: "no"
+                             'allowfullscreen: "true"
+                             height: "100%"
+                             width: "100%"
+                             ))
+                      (div class: "twitch-chat embed-responsive embed-responsive-16by9"
+                           (iframe
+                             'frameborder: "0"
+                             'scrolling: "no"
+                             src: "https://www.twitch.tv/embed/codespells/chat?parent=localhost"
+                             height: "100%"
+                             width: "100%"
+                             ))) 
+
+                 #;
+                 (enclose 
+                   (div 
+                     (div class: "embed-responsive embed-responsive-16by9" 
+                          id: "twitch-embed")
+                     (html:script src: "https://embed.twitch.tv/embed/v1.js"))
+                   (script ([construct (call 'constructor)])
+                           (function (constructor)
+                                     @js{
+                                     new Twitch.Embed("twitch-embed", {
+                                                      width: 854,
+                                                      height: 480,
+                                                      channel: "codespells",
+                                                      })})))))
 
 (define (about-the-game)
   (homepage-card #:title "About the Project"
@@ -136,6 +172,7 @@
 (define (left-column)
   (div class: "col p-0"
     (trailer-video)     
+    (twitch-card)
     (links-card)
     (recent-blog-posts)
     ))
