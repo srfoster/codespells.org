@@ -32,7 +32,7 @@
                  (div class: "twitch"
                       (div class: "twitch-video embed-responsive embed-responsive-16by9" 
                            (iframe
-                             src: "https://player.twitch.tv/?channel=codespells&parent=localhost&autoplay=false"
+                             src: "https://player.twitch.tv/?channel=codespells&parent=codespells.org&autoplay=false"
                              'frameborder: "0"
                              'scrolling: "no"
                              'allowfullscreen: "true"
@@ -43,7 +43,7 @@
                            (iframe
                              'frameborder: "0"
                              'scrolling: "no"
-                             src: "https://www.twitch.tv/embed/codespells/chat?parent=localhost"
+                             src: "https://www.twitch.tv/embed/codespells/chat?parent=codespells.org"
                              height: "100%"
                              width: "100%"
                              ))) 
