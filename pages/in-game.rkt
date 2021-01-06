@@ -1,5 +1,7 @@
 #lang at-exp racket
 
+(provide in-game.html)
+
 (require "index.rkt"
          "../lang.rkt" 
          "blog/posts.rkt"
