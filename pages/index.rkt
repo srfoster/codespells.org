@@ -146,7 +146,10 @@
 	  )
 	)
       )
-    (link-to-builds)))
+    (link-to-builds)
+    (br)
+    (a href: "/repos.html" "View the Source Code")
+    ))
 
 (define (recent-blog-posts)
   (local-require gregor)

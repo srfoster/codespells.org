@@ -6,6 +6,7 @@
 	 "./pages/in-game.rkt"
          "./pages/blog/lang.rkt"
 	 "./pages.rkt"
+         "./pages/repos.rkt"
          )
 
 (provide site)
@@ -18,6 +19,7 @@
     (index.html)
     (in-game.html)
     (blog.html)
+    (repos.html)
     (authored-works.html)
     (all-post-pages)
     images

@@ -267,38 +267,59 @@
 	[#rx"[ ]+" "-"]))))
 
 
-(define (github:codespells-runes (main 
-				   (tt "codespells-runes"))
-		       . content)
-  (a href: "https://github.com/srfoster/codespells-runes"
-     main
-     content))
+(define-syntax-rule (define-repo id name url)
+  (begin
+    (provide id)
+    (define (id
+              (main 
+                (tt name))
+              . content)
+      (a href: url 
+         main
+         content))))
 
-(define (github:codespells-server (main 
-				   (tt "codespells-server"))
-		       . content)
-  (a href: "https://github.com/srfoster/codespells-server"
-     main
-     content))
+;MODS
+(define-repo github:hierarchy "hierarchy" "https://github.com/srfoster/hierarchy")
+(define-repo github:fire-particles "fire-particles" "https://github.com/srfoster/fire-particles")
+(define-repo github:rocks "rocks" "https://github.com/srfoster/rocks")
+(define-repo github:cabin-items "cabin-items" "https://github.com/srfoster/cabin-items")
+(define-repo github:placements "placements" "https://github.com/srfoster/placements")
+(define-repo github:towers "towers" "https://github.com/ldhandley/towers")
+(define-repo github:crystals "crystals" "https://github.com/ldhandley/crystals")
+(define-repo github:my-meme-gallery "my-meme-gallery" "https://github.com/ldhandley/my-meme-gallery")
+(define-repo github:web-browser "web-browser" "https://github.com/ldhandley/web-browser")
+(define-repo github:codespells-dev-runes "codespells-dev-runes" "https://github.com/ldhandley/codespells-dev-runes")
+(define-repo github:triggers "triggers" "https://github.com/ldhandley/triggers")
+(define-repo github:spawners "spawners" "https://github.com/ldhandley/spawners")
+(define-repo github:ice-particles "ice-particles" "https://github.com/ldhandley/ice-particles")
+(define-repo github:codespells-demo-mod "codespells-demo-mod" "https://github.com/srfoster/codespells-demo-mod")
 
-(define (github:codespells.org (main 
-				   (tt "codespells.org"))
-		       . content)
-  (a href: "https://github.com/srfoster/codespells.org"
-     main
-     content))
+;WORLDS
+(define-repo github:arena-world "arena-world" "https://github.com/ldhandley/arena-world")
+(define-repo github:cave-world "cave-world" "https://github.com/ldhandley/cave-world")
+(define-repo github:voxel-world "voxel-world" "https://github.com/ldhandley/voxel-world")
+(define-repo github:forest-world "forest-world" "https://github.com/ldhandley/forest-world")
+(define-repo github:temple-world "temple-world" "https://github.com/ldhandley/temple-world")
+(define-repo github:village-world "village-world" "https://github.com/ldhandley/village-world")
+(define-repo github:polar-facility-world "polar-facility-world" "https://github.com/ldhandley/polar-facility-world")
+(define-repo github:cabin-world "cabin-world" "https://github.com/ldhandley/cabin-world")
 
-(define (github:codespells (main 
-				   (tt "codespells"))
-		       . content)
-  (a href: "https://github.com/srfoster/codespells"
-     main
-     content))
+;WORKS
+(define-repo github:arena-world-demo-build "arena-world-demo-build" "https://github.com/srfoster/arena-world-demo-build")
+(define-repo github:cave-world-demo-build "cave-world-demo-build" "https://github.com/srfoster/cave-world-demo-build")
+(define-repo github:polar-facility-world-demo-build "polar-facility-world-demo-build" "https://github.com/ldhandley/polar-facility-world-demo-build")
+(define-repo github:temple-world-demo-build "temple-world-demo-build" "https://github.com/ldhandley/temple-world-demo-build")
+(define-repo github:village-world-demo-build "village-world-demo-build" "https://github.com/ldhandley/village-world-demo-build")
+(define-repo github:voxel-world-demo-build "voxel-world-demo-build" "https://github.com/srfoster/voxel-world-demo-build")
+(define-repo github:forest-world-demo-build "forest-world-demo-build" "https://github.com/ldhandley/forest-world-demo-build")
+(define-repo github:log-cabin-world-demo-build "log-cabin-world-demo-build" "https://github.com/ldhandley/log-cabin-world-demo-build")
 
-(define (github:codespells-demo-mod 
-	  (main 
-	    (tt "codespells-demo-mod"))
-	  . content)
-  (a href: "https://github.com/srfoster/codespells-demo-mod"
-     main
-     content))
+
+;CORE TECHNOLOGIES
+(define-repo github:codespells-runes "codespells-runes" "https://github.com/srfoster/codespells-runes")
+(define-repo github:codespells-server "codespells-server" "https://github.com/srfoster/codespells-server")
+(define-repo github:codespells-internal "codespells-internal" "https://github.com/srfoster/codespells-internal")
+(define-repo github:codespells-dev-ops "codespells-dev-ops" "https://github.com/srfoster/codespells-dev-ops")
+(define-repo github:codespells.org "codespells.org" "https://github.com/srfoster/codespells.org")
+(define-repo github:codespells-trailer "codespells-trailer" "https://github.com/ldhandley/codespells-trailer")
+(define-repo github:codespells "codespells" "https://github.com/srfoster/codespells")
