@@ -2,6 +2,7 @@
 
 (require (except-in "../../lang.rkt" small))
 (require (except-in "./lang.rkt" small))
+
 (require 
   website-js/components/accordion-cards
  ; (except-in website-js small)
@@ -11,7 +12,8 @@
   (prefix-in h:
 	     2htdp/image)
 
-  codespells-server/in-game-lang)
+  "../../legacy/in-game-lang.rkt"
+  )
 
 (define (spell-card . content)
   (card

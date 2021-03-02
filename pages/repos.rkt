@@ -37,7 +37,7 @@
     * @(github:triggers) 
     * @(github:spawners) 
     * @(github:ice-particles) 
-    * @(github:codespells-demo-mod) 
+    * @(github:sevarog) 
     
     ##Worlds
     

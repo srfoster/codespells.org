@@ -10,8 +10,9 @@
 		      script))
   (prefix-in h:
 	     2htdp/image)
-
-  codespells-server/in-game-lang)
+  
+  "../../legacy/in-game-lang.rkt"
+  )
 
 (define (dummy-lang)
   (local-require (only-in 2htdp/image circle))

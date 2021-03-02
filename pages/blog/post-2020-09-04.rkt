@@ -11,7 +11,8 @@
   (prefix-in h:
 	     2htdp/image)
 
-  codespells-server/in-game-lang)
+  "../../legacy/in-game-lang.rkt"
+  )
 
 (define-post 
   2020-09-04

@@ -22,7 +22,7 @@
   github:codespells-server
   github:codespells.org
   github:codespells
-  github:codespells-demo-mod)
+  )
 
 (require webapp/js 
 	 (prefix-in normal- website/bootstrap)
@@ -292,7 +292,7 @@
 (define-repo github:triggers "triggers" "https://github.com/ldhandley/triggers")
 (define-repo github:spawners "spawners" "https://github.com/ldhandley/spawners")
 (define-repo github:ice-particles "ice-particles" "https://github.com/ldhandley/ice-particles")
-(define-repo github:codespells-demo-mod "codespells-demo-mod" "https://github.com/srfoster/codespells-demo-mod")
+(define-repo github:sevarog "sevarog" "https://github.com/ldhandley/sevarog")
 
 ;WORLDS
 (define-repo github:arena-world "arena-world" "https://github.com/ldhandley/arena-world")
@@ -323,3 +323,5 @@
 (define-repo github:codespells.org "codespells.org" "https://github.com/srfoster/codespells.org")
 (define-repo github:codespells-trailer "codespells-trailer" "https://github.com/ldhandley/codespells-trailer")
 (define-repo github:codespells "codespells" "https://github.com/srfoster/codespells")
+(define-repo github:codespells-demo-mod "codespells-demo-mod" "https://github.com/srfoster/codespells-demo-mod")
+
