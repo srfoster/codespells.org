@@ -1,4 +1,3 @@
-
 #lang at-exp racket
 
 (require "../../lang.rkt")
@@ -6,7 +5,7 @@
 
 (define-post
   2021-03-05
-  "CodeSpells Season 1. Nomic update"
+  "CodeSpells Season 1. Nomic Update"
   @div{
     Lindsey seems to be winning
   }
@@ -38,7 +37,7 @@
   to a playlist that plays during our stream,
   and more importantly, lets you affect the
   state of the 3D world simply by typing 
-  commands in the Twitch chat.
+  commands in the [Twitch](https://www.twitch.tv/codespells) chat.
 
   We'll be using this to give Twitch viewers
   more ways of interacting with our 
