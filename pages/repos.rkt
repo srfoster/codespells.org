@@ -21,6 +21,8 @@
     * @(github:codespells-trailer) 
     * @(github:codespells-dev-ops) 
     * @(github:codespells-internal) 
+    * @(github:codespells-spell-sharing) 
+    * @(github:codespells-spell-sharing-front-end) 
 
     ##Rune Collections (Mods)
 
@@ -38,6 +40,9 @@
     * @(github:spawners) 
     * @(github:ice-particles) 
     * @(github:sevarog) 
+    * @(github:nomic) 
+    * @(github:chess) 
+    * @(github:taggable) 
     
     ##Worlds
     

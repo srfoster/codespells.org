@@ -22,6 +22,8 @@
   github:codespells-server
   github:codespells.org
   github:codespells
+
+  our-twitch
   )
 
 (require webapp/js 
@@ -31,6 +33,10 @@
 
 (define show-only-on-md-and-up "d-none d-md-block")
 (define show-only-on-sm-and-below "d-block d-md-none")
+
+(define (our-twitch)
+  (a href: "https://twitch.tv/codespells"
+     "Our Twitch"))
 
 (define (google-analytics)
   (list
@@ -293,6 +299,9 @@
 (define-repo github:spawners "spawners" "https://github.com/ldhandley/spawners")
 (define-repo github:ice-particles "ice-particles" "https://github.com/ldhandley/ice-particles")
 (define-repo github:sevarog "sevarog" "https://github.com/ldhandley/sevarog")
+(define-repo github:taggable "taggable" "https://github.com/srfoster/taggable")
+(define-repo github:nomic "nomic" "https://github.com/srfoster/nomic")
+(define-repo github:chess "chess" "https://github.com/srfoster/chess")
 
 ;WORLDS
 (define-repo github:arena-world "arena-world" "https://github.com/ldhandley/arena-world")
@@ -324,4 +333,12 @@
 (define-repo github:codespells-trailer "codespells-trailer" "https://github.com/ldhandley/codespells-trailer")
 (define-repo github:codespells "codespells" "https://github.com/srfoster/codespells")
 (define-repo github:codespells-demo-mod "codespells-demo-mod" "https://github.com/srfoster/codespells-demo-mod")
+
+
+(define-repo github:codespells-spell-sharing "codespells-spell-sharing" "https://github.com/srfoster/codespells-spell-sharing")
+(define-repo github:codespells-spell-sharing-front-end "codespells-spell-sharing-front-end" "https://github.com/srfoster/codespells-spell-sharing-front-end")
+
+
+
+
 
