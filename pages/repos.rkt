@@ -18,6 +18,7 @@
     * @(github:codespells-runes) 
     * @(github:codespells-server) 
     * @(github:codespells.org) 
+    * @(github:codespells-live) 
     * @(github:codespells-trailer) 
     * @(github:codespells-dev-ops) 
     * @(github:codespells-internal) 
@@ -25,6 +26,8 @@
     ##Rune Collections (Mods)
 
     * @(github:hierarchy) 
+    * @(github:codespells-nomic) 
+    * @(github:taggable) 
     * @(github:fire-particles) 
     * @(github:rocks) 
     * @(github:cabin-items) 

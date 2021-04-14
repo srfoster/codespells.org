@@ -100,6 +100,7 @@
     (nav-link "builds.html" "Downloads")
 
     (div class: show-only-on-md-and-up
+	 (my-social-media-link "twitch" "https://www.twitch.tv/codespells") 
 	 (my-social-media-link "facebook" "https://www.facebook.com/codespells") 
 	 (my-social-media-link "twitter" "https://twitter.com/codespells") 
 	 (my-social-media-link "youtube" "https://www.youtube.com/channel/UCxCGsdZJ16d1q_3SbtNMbtQ") 
@@ -120,6 +121,12 @@
          (a href: to 
             target: "_blank"
             class: "fab fa-twitter-square fa-2x p-1"
+            style: (properties color: brown)
+         )]
+        [(string=? type "twitch")
+         (a href: to 
+            target: "_blank"
+            class: "fab fa-twitch fa-2x p-1"
             style: (properties color: brown)
          )]
         [(string=? type "discord")
@@ -280,6 +287,7 @@
 
 ;MODS
 (define-repo github:hierarchy "hierarchy" "https://github.com/srfoster/hierarchy")
+(define-repo github:taggable "taggable" "https://github.com/srfoster/taggable")
 (define-repo github:fire-particles "fire-particles" "https://github.com/srfoster/fire-particles")
 (define-repo github:rocks "rocks" "https://github.com/srfoster/rocks")
 (define-repo github:cabin-items "cabin-items" "https://github.com/srfoster/cabin-items")
@@ -321,6 +329,8 @@
 (define-repo github:codespells-internal "codespells-internal" "https://github.com/srfoster/codespells-internal")
 (define-repo github:codespells-dev-ops "codespells-dev-ops" "https://github.com/srfoster/codespells-dev-ops")
 (define-repo github:codespells.org "codespells.org" "https://github.com/srfoster/codespells.org")
+(define-repo github:codespells-live "codespells-live" "https://github.com/ldhandley/codespells-live")
+(define-repo github:codespells-nomic "nomic" "https://github.com/srfoster/nomic")
 (define-repo github:codespells-trailer "codespells-trailer" "https://github.com/ldhandley/codespells-trailer")
 (define-repo github:codespells "codespells" "https://github.com/srfoster/codespells")
 (define-repo github:codespells-demo-mod "codespells-demo-mod" "https://github.com/srfoster/codespells-demo-mod")
