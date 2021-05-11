@@ -334,6 +334,8 @@
 (define-repo github:forest-world-demo-build "forest-world-demo-build" "https://github.com/ldhandley/forest-world-demo-build")
 (define-repo github:log-cabin-world-demo-build "log-cabin-world-demo-build" "https://github.com/ldhandley/log-cabin-world-demo-build")
 
+;TWITCH CHAT-INTEGRATED GAMES
+(define-repo github:orb-game-1 "orb-game-1" "https://github.com/srfoster/orb-game-1")
 
 ;CORE TECHNOLOGIES
 (define-repo github:codespells-runes "codespells-runes" "https://github.com/srfoster/codespells-runes")
