@@ -193,6 +193,10 @@
                                  (li 
                                    (row
                                      (col-12
+                                       (a href: "https://www.twitch.tv/codespells"
+                                          style: (properties padding-left: "0px")
+                                          target: "_blank"
+                                          class: "fab fa-twitch fa-2x")
                                        (a href: "https://www.facebook.com/codespells/"
                                           style: (properties padding-left: "0px")
                                           target: "_blank"
@@ -307,7 +311,6 @@
 (define-repo github:spawners "spawners" "https://github.com/ldhandley/spawners")
 (define-repo github:ice-particles "ice-particles" "https://github.com/ldhandley/ice-particles")
 (define-repo github:sevarog "sevarog" "https://github.com/ldhandley/sevarog")
-(define-repo github:taggable "taggable" "https://github.com/srfoster/taggable")
 (define-repo github:nomic "nomic" "https://github.com/srfoster/nomic")
 (define-repo github:chess "chess" "https://github.com/srfoster/chess")
 
