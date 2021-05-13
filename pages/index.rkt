@@ -1,4 +1,4 @@
-#lang at-exp racket 
+#lang at-exp racket
 
 (provide index.html
          index.html-content
@@ -6,7 +6,7 @@
          trailer-video
          links-card
          recent-blog-posts
-         codespells-navbar 
+         codespells-navbar
          homepage-card
          )
 
@@ -24,13 +24,13 @@
 
 (define (trailer-video)
   (homepage-card #:title "Latest Spell Reel"
-		  (div class: "embed-responsive embed-responsive-16by9"
-		       (yt "Sfjy8Y_mThw"))))
+                  (div class: "embed-responsive embed-responsive-16by9"
+                       (yt "Sfjy8Y_mThw"))))
 
 (define (twitch-card)
   (homepage-card #:title "Development Live Stream"
                  (div class: "twitch"
-                      (div class: "twitch-video embed-responsive embed-responsive-16by9" 
+                      (div class: "twitch-video embed-responsive embed-responsive-16by9"
                            (iframe
                              src: "https://player.twitch.tv/?channel=codespells&parent=codespells.org&autoplay=false"
                              'frameborder: "0"
@@ -46,12 +46,12 @@
                              src: "https://www.twitch.tv/embed/codespells/chat?parent=codespells.org"
                              height: "100%"
                              width: "100%"
-                             ))) 
+                             )))
 
                  #;
-                 (enclose 
-                   (div 
-                     (div class: "embed-responsive embed-responsive-16by9" 
+                 (enclose
+                   (div
+                     (div class: "embed-responsive embed-responsive-16by9"
                           id: "twitch-embed")
                      (html:script src: "https://embed.twitch.tv/embed/v1.js"))
                    (script ([construct (call 'constructor)])
@@ -70,7 +70,7 @@
 
       Like... literally.  You craft spells to change the game.
 
-      Our ambitious goal is that CodeSpells will have the deepest, 
+      Our ambitious goal is that CodeSpells will have the deepest,
       most interesting magic system of any video game ever created,
       full of linguistic nuance and enchanted toys,
       giving you the ability to completely alter the game you're
@@ -78,73 +78,73 @@
 
       @b{But CodeSpells is more than a video game.}
 
-      Like.. literally.  It's more than **one** video game.  We already have several 
-      tech demo sandboxes on our @(link-to-builds) page. 
+      Like.. literally.  It's more than **one** video game.  We already have several
+      tech demo sandboxes on our @(link-to-builds) page.
 
-      But also... CodeSpells is more than a game because it's a 
-      platform.  
-      Our vision is that anyone can use the @(authoring-tools) to 
-      create @(authored-works): games, experiences, and educational environments 
-      -- all of which can be reprogrammed "from within" (via spells) and 
+      But also... CodeSpells is more than a game because it's a
+      platform.
+      Our vision is that anyone can use the @(authoring-tools) to
+      create @(authored-works): games, experiences, and educational environments
+      -- all of which can be reprogrammed "from within" (via spells) and
       "from without" (via mods).
 
-      We hope you'll follow our progress on the blog, the @(link-to-builds) page, 
+      We hope you'll follow our progress on the blog, the @(link-to-builds) page,
       and @(a href: "https://www.patreon.com/codespells" "our Patreon").
 
       }))
 
 (define (links-card)
-  (homepage-card 
+  (homepage-card
     #:title "Community Links"
     (ul
       (map li
-	   (list
-	     (a href: "https://www.patreon.com/codespells" 
-		(fa-gem) " Join our Patreon" )
-	     (a href: "https://discord.gg/prsZZnm"
-		(i class: "fas fa-user-friends")
-		" Join the Discord" )     
-	     (a href: "http://store.steampowered.com/app/324190"
-		(fa-gamepad)
-		" Get the original on Steam")
-	     (a href: "http://eepurl.com/hacdwD"
-		(fa-envelope)
-		" Join the Mailing List" )
-	     (a href: (prefix/pathify "blog.html")
-		(fa-book)
-		" Read the Blog" )
+           (list
+             (a href: "https://www.patreon.com/codespells"
+                (fa-gem) " Join our Patreon" )
+             (a href: "https://discord.gg/prsZZnm"
+                (i class: "fas fa-user-friends")
+                " Join the Discord" )
+             (a href: "http://store.steampowered.com/app/324190"
+                (fa-gamepad)
+                " Get the original on Steam")
+             (a href: "http://eepurl.com/hacdwD"
+                (fa-envelope)
+                " Join the Mailing List" )
+             (a href: (prefix/pathify "blog.html")
+                (fa-book)
+                " Read the Blog" )
              )))))
 
 (define (about-the-authors)
-  (homepage-card 
+  (homepage-card
     #:title "About the Authors"
     @md{
-    **Stephen R. Foster, Ph.D.** and **Lindsey D. Handley, Ph.D.** 
+    **Stephen R. Foster, Ph.D.** and **Lindsey D. Handley, Ph.D.**
 
     We founded @(a href: "https://www.thoughtstem.com" "ThoughtSTEM"),
     wrote a book called @(a href: "https://dont-teach.com" "Don't Teach Coding"),
-    and currently work full-time on CodeSpells. Patreon is currently our only source of funding. So we could really use your help! Please support us. 
+    and currently work full-time on CodeSpells. Patreon is currently our only source of funding. So we could really use your help! Please support us.
     }
     ))
 
 (define (builds-card)
-  (homepage-card 
+  (homepage-card
     #:title "Builds"
     (div
       (row
-	(col-6
-	  (p "Works: "))
-	(col-6
-	  (p "7")
-	  )
-	)
+        (col-6
+          (p "Works: "))
+        (col-6
+          (p "7")
+          )
+        )
       (row
-	(col-6
-	  (p "Rune Collections: "))
-	(col-6
-	  (p "6")
-	  )
-	)
+        (col-6
+          (p "Rune Collections: "))
+        (col-6
+          (p "6")
+          )
+        )
       )
     (link-to-builds)
     (br)
@@ -156,25 +156,25 @@
   (homepage-card #:title "Blog"
       (p "Latest Blog Posts:")
       (ul
-	(map
-	  (compose li
-		   (lambda (p)
-		     (list
-		       (a href: (prefix/pathify (post->path p))
-			  (post-title p)
-			  " ")
+        (map
+          (compose li
+                   (lambda (p)
+                     (list
+                       (a href: (prefix/pathify (post->path p))
+                          (post-title p)
+                          " ")
 
-		       (~t (post-date p)
-			   "(E, MMMM d, y)"))))
-	  (take
-	    (all-posts)
-	    4)))
+                       (~t (post-date p)
+                           "(E, MMMM d, y)"))))
+          (take
+            (all-posts)
+            4)))
       (a href: "/blog.html"
-	 "All Posts")))
+         "All Posts")))
 
 (define (left-column)
   (div class: "col p-0"
-    (trailer-video)     
+    (trailer-video)
     (twitch-card)
     (links-card)
     (recent-blog-posts)
@@ -190,49 +190,46 @@
 (define (homepage-content)
   (container
     (row
-      (left-column) 
+      (left-column)
       (right-column))))
 
 (define (big-screen-content)
   (normal-content
     (div class: show-only-on-md-and-up
-	 (codespells-navbar)
-	 (div 
-	   style: (properties 
-		    position: 'fixed
-		    background-image: (~a "url("path:images/EarthBall.png")")
-		    background-size:  "cover"
-		    background-position:  "center"
-		    background-repeat:  "no-repeat"
-		    background-attachment:  "fixed"
-		    height: "100vh"
-		    width: "100vw"))
-	 (homepage-content)
-	 (codespells-footer)
-	 )))
+         (codespells-navbar)
+         (div
+           style: (properties
+                    position: 'fixed
+                    background-image: (~a "url("path:images/EarthBall.png")")
+                    background-size:  "cover"
+                    background-position:  "center"
+                    background-repeat:  "no-repeat"
+                    background-attachment:  "fixed"
+                    height: "100vh"
+                    width: "100vw"))
+         (homepage-content)
+         (codespells-footer)
+         )))
 
 (define (mobile-content)
   (normal-content
     (div class: show-only-on-sm-and-below
-	 (codespells-navbar)
-	 (left-column)
-	 (right-column)
+         (codespells-navbar)
+         (left-column)
+         (right-column)
          (codespells-footer)
          )))
-
 
 (define (index.html)
   (page index.html
         (index.html-content)))
 
-(define (index.html-content)         
+(define (index.html-content)
   (div
     (list
       (big-screen-content)
-      (mobile-content))))  
+      (mobile-content))))
 
 (module+ main
-	 (render #:to "out" 
-		 (index.html)))
-
-
+         (render #:to "out"
+                 (index.html)))
