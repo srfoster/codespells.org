@@ -87,29 +87,20 @@
     (hr)
     (rune-collection-section)))
 
-(define (big-screen-content)
+(define (builds-page-content)
   (normal-content
-    (div class: show-only-on-md-and-up
-         (codespells-navbar)
-         (authored-work-container)
-         (codespells-footer)
-         )))
+    #:head (list (title "CodeSpells Downloads")
+                 (meta name: "description" content: "Try out our demo builds that use the CodeSpells Engine!")
+                 ) 
+    (authored-work-container)
+    ))
 
-(define (mobile-content)
-  (normal-content
-    (div class: show-only-on-sm-and-below
-         (codespells-navbar)
-         (authored-work-container)
-         (codespells-footer)
-         )))
 
 (define (authored-works.html)
   (list
     (rune-collection-pages)
     (page builds.html
-          (list
-            (big-screen-content)
-            (mobile-content)))))
+          (builds-page-content))))
 
 (module+ main
          (render #:to "out"
