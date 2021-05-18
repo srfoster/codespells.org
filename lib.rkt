@@ -124,6 +124,7 @@
 (define (codespells-navbar)
   (navbar
     #:brand (logo 100)
+    (nav-link "https://spell-client.vercel.app/" "Nexus")
     (nav-link "blog.html" "Blog")
     (nav-link "builds.html" "Downloads")
 
@@ -195,13 +196,15 @@
                    (col-md-3 class: "text-white"
                              (h6 "CodeSpells")
                              (ul class: "list-unstyled"
-                                 (li (link-to "./builds.html" (small "Downloads")))
+                                 (li (a href: "https://spell-client.vercel.app/" (small "Nexus")))
                                  (li (link-to "./blog.html" (small "Blog")))
+                                 (li (link-to "./builds.html" (small "Downloads")))
                                  ))
                    (col-md-4 class: "text-white"
                              (h6 "Support Us")
                              (ul class: "list-unstyled"
                                  (li (a href: "https://www.patreon.com/codespells" target: "_blank" (small "Join Our Patreon")))
+                                 (li (a href: "https://www.twitch.tv/codespells" target: "_blank" (small "Become a Twitch Subscriber")))
                                  (li (a href: "https://store.steampowered.com/app/324190/CodeSpells/" target: "_blank" (small "Purchase Previous Version on Steam")))
                                  (li (a href: "https://codespells.us17.list-manage.com/subscribe?u=dbaae34bac76f17fad7bc6efd&id=a0f4e4cdc2" target: "_blank" (small "Join Our Mailing List")))
                                  )
@@ -234,7 +237,7 @@
                                           target: "_blank"
                                           class: "fab fa-discord fa-2x"))))
                                  (li (br))
-                                 (li (small "ThoughtSTEM, LLC Copyright 2020"))
+                                 (li (small "ThoughtSTEM, LLC Copyright 2021"))
                                  (li (small "All Rights Reserved"))
                                  )))))))
 
