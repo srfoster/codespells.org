@@ -51,10 +51,32 @@
     )
   )
 
-(define (normal-content #:head (h (void)) . more)
+; Use #:mobile-content to add mobile-specific 
+; content if it's different from the normal body 
+; content. Otherwise, assumed that body content is 
+; good for mobile view.
+; Use #:head for any tags to add to header.
+(define (normal-content #:head (h (void))
+                        #:mobile-content (mobile-content (void))
+                        . body-content)
   (content #:head (list h 
                         (google-analytics))
-           more))
+           (div
+             (div class: show-only-on-md-and-up
+                  (codespells-navbar)
+                  body-content
+                  (codespells-footer)
+                  )
+             (div class: show-only-on-sm-and-below
+                  (codespells-navbar)
+                  (if (void? mobile-content)
+                    body-content
+                    mobile-content
+                    )
+                  (codespells-footer)
+                  ))
+           )
+  )
 
 (define (side-note . content)
   (card 

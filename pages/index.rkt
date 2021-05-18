@@ -1,7 +1,6 @@
 #lang at-exp racket
 
 (provide index.html
-         index.html-content
          about-the-authors
          trailer-video
          links-card
@@ -193,45 +192,29 @@
       (left-column)
       (right-column))))
 
-(define (big-screen-content)
+;Mobile view does not include background image
+(define (index-content)
   (normal-content 
     #:head (list (title "CodeSpells - Craft Magical Spells with Code")
                  (meta name: "description" content: "CodeSpells is making video games with magic systems that are powerful, creative, and fun! Watch us dev Monday-Friday on Twitch.")
                  ) 
-    (div class: show-only-on-md-and-up
-         (codespells-navbar)
-         (div
-           style: (properties
-                    position: 'fixed
-                    background-image: (~a "url("path:images/EarthBall.png")")
-                    background-size:  "cover"
-                    background-position:  "center"
-                    background-repeat:  "no-repeat"
-                    background-attachment:  "fixed"
-                    height: "100vh"
-                    width: "100vw"))
-         (homepage-content)
-         (codespells-footer)
-         )))
-
-(define (mobile-content)
-  (normal-content
-    (div class: show-only-on-sm-and-below
-         (codespells-navbar)
-         (left-column)
-         (right-column)
-         (codespells-footer)
-         )))
+    #:mobile-content (homepage-content)
+    (div
+      style: (properties
+               position: 'fixed
+               background-image: (~a "url("path:images/EarthBall.png")")
+               background-size:  "cover"
+               background-position:  "center"
+               background-repeat:  "no-repeat"
+               background-attachment:  "fixed"
+               height: "100vh"
+               width: "100vw"))
+    (homepage-content)
+    ))
 
 (define (index.html)
   (page index.html
-        (index.html-content)))
-
-(define (index.html-content)
-  (div
-    (list
-      (big-screen-content)
-      (mobile-content))))
+        (index-content)))
 
 (module+ main
          (render #:to "out"

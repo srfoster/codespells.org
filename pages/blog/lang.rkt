@@ -134,7 +134,9 @@
 
 (define (blog-post-page post)
   (normal-content
-    (codespells-navbar)
+    #:head (list (title (~a "CodeSpells Blog - " (post-title post)))
+                 (meta name: "description" content: (post-preview post))
+                 ) 
     (container
       (jumbotron 
 	(h1 (post-title post))
@@ -155,7 +157,6 @@
 	  (hr)
 	  (link-to-prev-post post)))
       )
-    (codespells-footer)
     ))
 
 (define (preview-post post)

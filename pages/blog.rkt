@@ -20,37 +20,31 @@
                     preview-post)
            (all-posts)))))
 
-(define (big-screen-content)
+;Mobile view does not include background image
+(define (page-content)
   (normal-content
-    (div class: show-only-on-md-and-up
-         (codespells-navbar)
-         (div
-              style: (properties
-                       position: 'fixed
-                       background-image: (~a "url("path:images/EarthBall.png")")
-                       background-size:  "cover"
-                       background-position:  "center"
-                       background-repeat:  "no-repeat"
-                       background-attachment:  "fixed"
-                       height: "100vh"
-                       width: "100vw"))
-         (blog-container)
-         (codespells-footer)
-         )))
+    #:head (list (title "CodeSpells Dev Blog")
+                 (meta name: "description" content: "Keep up-to-date with the latest CodeSpells news with our blog updates.")
+                 ) 
+    #:mobile-content (blog-container)
 
-(define (mobile-content)
-  (normal-content
-    (div class: show-only-on-sm-and-below
-         (codespells-navbar)
-         (blog-container)
-         (codespells-footer)
-         )))
+    (div
+      style: (properties
+               position: 'fixed
+               background-image: (~a "url("path:images/EarthBall.png")")
+               background-size:  "cover"
+               background-position:  "center"
+               background-repeat:  "no-repeat"
+               background-attachment:  "fixed"
+               height: "100vh"
+               width: "100vw"
+               z-index: "-1"
+               ))
+    (blog-container)))
 
 (define (blog.html)
   (page blog.html
-        (list
-          (big-screen-content)
-          (mobile-content))))
+        (page-content)))
 
 (module+ main
   (render #:to "out"
