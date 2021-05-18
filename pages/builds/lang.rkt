@@ -93,9 +93,10 @@
 (define (require+create-page authored-work-name)
   (define lore (dynamic-require-lore authored-work-name))
   (define wrapper (lambda (c) (normal-content
-				(codespells-navbar)
-				c
-                                (codespells-footer)
+                                #:head (list (title (~a "CodeSpells Work - " authored-work-name))
+                                             ) 
+
+                                c
                                 )))
   (let ()
     (rune-collection-name->rune-collection/page

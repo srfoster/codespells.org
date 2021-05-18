@@ -12,16 +12,21 @@
 (define (in-game.html)
   (page in-game.html
         (normal-content
-         (div
-           style: (properties
-                    position: 'fixed
-                    background-image: (~a "url("path:images/EarthBall.png")")
-                    background-size:  "cover"
-                    background-position:  "center"
-                    background-repeat:  "no-repeat"
-                    background-attachment:  "fixed"
-                    height: "100vh"
-                    width: "100vw"))
+          #:head (list (title "Welcome to CodeSpells!")
+                       (meta name: "description" content: "CodeSpells video games are a work-in-progress, so thank you for helping us test! Join our open-source community!")
+                       ) 
+          (div
+            style: (properties
+                     position: 'fixed
+                     background-image: (~a "url("path:images/EarthBall.png")")
+                     background-size:  "cover"
+                     background-position:  "center"
+                     background-repeat:  "no-repeat"
+                     background-attachment:  "fixed"
+                     height: "100vh"
+                     width: "100vw"
+                     z-index: "-1"
+                     ))
           (container
             (div style: (properties position: "relative"
                                     margin-left: "auto"

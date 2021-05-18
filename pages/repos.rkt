@@ -73,27 +73,18 @@
    )
   )
 
-(define (big-screen-content)
+(define (repos-content)
   (normal-content
+    #:head (list (title "CodeSpells Github Repositories")
+                 (meta name: "description" content: "We have CodeSpells repos galore! CodeSpells is an open-source project, so all contributions are welcome!")
+                 ) 
     (div class: show-only-on-md-and-up
-         (codespells-navbar)
          (repos-container)
-         (codespells-footer)
-         )))
-
-(define (mobile-content)
-  (normal-content
-    (div class: show-only-on-sm-and-below
-         (codespells-navbar)
-         (repos-container)
-         (codespells-footer)
          )))
 
 (define (repos.html)
   (page repos.html
-        (list
-          (big-screen-content)
-          (mobile-content))))
+        (repos-content)))
 
 (module+ main
   (render #:to "out"
