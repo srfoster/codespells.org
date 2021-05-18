@@ -194,7 +194,10 @@
       (right-column))))
 
 (define (big-screen-content)
-  (normal-content
+  (normal-content 
+    #:head (list (title "CodeSpells - Craft Magical Spells with Code")
+                 (meta name: "description" content: "CodeSpells is making video games with magic systems that are powerful, creative, and fun! Watch us dev Monday-Friday on Twitch.")
+                 ) 
     (div class: show-only-on-md-and-up
 	 (codespells-navbar)
 	 (div 
