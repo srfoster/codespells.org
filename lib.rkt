@@ -124,7 +124,7 @@
 (define (codespells-navbar)
   (navbar
     #:brand (logo 100)
-    (nav-link "https://spell-client.vercel.app/" "Nexus")
+    (nav-link "http://nexus.codespells.org" "Nexus")
     (nav-link "blog.html" "Blog")
     (nav-link "builds.html" "Downloads")
 
@@ -196,7 +196,7 @@
                    (col-md-3 class: "text-white"
                              (h6 "CodeSpells")
                              (ul class: "list-unstyled"
-                                 (li (a href: "https://spell-client.vercel.app/" (small "Nexus")))
+                                 (li (a href: "http://nexus.codespells.org" (small "Nexus")))
                                  (li (link-to "./blog.html" (small "Blog")))
                                  (li (link-to "./builds.html" (small "Downloads")))
                                  ))
