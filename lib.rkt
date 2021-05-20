@@ -323,6 +323,7 @@
 ;MODS
 (define-repo github:hierarchy "hierarchy" "https://github.com/srfoster/hierarchy")
 (define-repo github:taggable "taggable" "https://github.com/srfoster/taggable")
+(define-repo github:magical-orbs-plugin "magical-orbs-plugin" "https://github.com/srfoster/MagicalOrbs")
 (define-repo github:fire-particles "fire-particles" "https://github.com/srfoster/fire-particles")
 (define-repo github:rocks "rocks" "https://github.com/srfoster/rocks")
 (define-repo github:cabin-items "cabin-items" "https://github.com/srfoster/cabin-items")
@@ -374,10 +375,11 @@
 (define-repo github:codespells "codespells" "https://github.com/srfoster/codespells")
 (define-repo github:codespells-demo-mod "codespells-demo-mod" "https://github.com/srfoster/codespells-demo-mod")
 
+(define-repo github:codespells-nexus "codespells-nexus" "https://github.com/srfoster/nexus")
 
+;DEPRECATED
 (define-repo github:codespells-spell-sharing "codespells-spell-sharing" "https://github.com/srfoster/codespells-spell-sharing")
 (define-repo github:codespells-spell-sharing-front-end "codespells-spell-sharing-front-end" "https://github.com/srfoster/codespells-spell-sharing-front-end")
-
 
 
 

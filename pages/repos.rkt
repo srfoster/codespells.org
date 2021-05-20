@@ -14,14 +14,13 @@
 
     ##Core Technologies
     * @(github:codespells)
-    * @(github:codespells-runes)
+    * @(github:codespells-nexus)
     * @(github:codespells-server)
     * @(github:codespells.org)
     * @(github:codespells-trailer)
+    * @(github:codespells-runes)
     * @(github:codespells-dev-ops)
     * @(github:codespells-internal)
-    * @(github:codespells-spell-sharing)
-    * @(github:codespells-spell-sharing-front-end)
 
     ##Rune Collections (Mods)
 
@@ -42,6 +41,7 @@
     * @(github:nomic)
     * @(github:chess)
     * @(github:taggable)
+    * @(github:magical-orbs-plugin)
 
     ##Worlds
 
