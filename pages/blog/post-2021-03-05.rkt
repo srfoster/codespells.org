@@ -32,22 +32,22 @@
 
   ---
 
-  In other news, we've been working on a 
+  In other news, we've been working on a
   Twitch bot, which lets you both add songs
   to a playlist that plays during our stream,
   and more importantly, lets you affect the
-  state of the 3D world simply by typing 
+  state of the 3D world simply by typing
   commands in the [Twitch](https://www.twitch.tv/codespells) chat.
 
   We'll be using this to give Twitch viewers
-  more ways of interacting with our 
+  more ways of interacting with our
   design stream over the coming weeks!
 
   ---
 
   A big thanks to everyone who has been
   showing up day after day to help us with
-  this project! 
+  this project!
 
   @p{- Stephen R. Foster}
   @(logo 200)
