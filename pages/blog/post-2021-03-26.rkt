@@ -37,7 +37,7 @@
   * runiracc
   * kenzo_25
   * angoulor
-  * jesscxc
+  * [jesscxc](http://NoLiesPlease.com)
   * [Trithir](https://twitch.tv/trithir)
   * CrusadingSeal
 
