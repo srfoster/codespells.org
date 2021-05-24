@@ -1,4 +1,3 @@
-
 #lang at-exp racket
 
 (require "../../lang.rkt")
@@ -15,10 +14,9 @@
   We have two software engineering interns working on a system
   for creating and sharing spells.  As always, the code is open source:
 
-  * @(github:codespells-spell-sharing)
-  * @(github:codespells-spell-sharing-front-end)
+  * @(github:codespells-nexus)
 
-  Meanwhile, Lindsey and I recently applied at YCombinator.  In the process,
+  Meanwhile, Lindsey and I recently applied at Y Combinator.  In the process,
   I added some new chess-related assets to the CodeSpells ecosystem:
 
   * @(github:chess)
@@ -29,7 +27,7 @@
 
   * @(github:nomic)
 
-  I want to say a huge "THANK YOU" to everyone who has been regularly contributing 
+  I want to say a huge "THANK YOU" to everyone who has been regularly contributing
   ideas on Twitch!  In no particular order:
 
   * Woogachaka
