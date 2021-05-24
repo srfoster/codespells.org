@@ -1,4 +1,3 @@
-
 #lang at-exp racket
 
 (require "../../lang.rkt")
@@ -17,7 +16,7 @@
   @(iframe
      width: "560" height: "315" src: "https://www.youtube.com/embed/videoseries?list=PLZfqZ8S_29LEfrw7JxHccR_lq_sfh2lpn" 'title: "YouTube video player" 'frameborder: "0" 'allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 'allowfullscreen: #t )
 
-  **Playlist #2.** My dev vlog, where I share updates about development.  Be warned; I am weird. 
+  **Playlist #2.** My dev vlog, where I share updates about development.  Be warned; I am weird.
 
   @(iframe
      width: "560" height: "315" src: "https://www.youtube.com/embed/videoseries?list=PLZfqZ8S_29LGot8TkZBlrYHTbt0p0FDHW" 'title: "YouTube video player" 'frameborder: "0" 'allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 'allowfullscreen: #t )
