@@ -45,6 +45,9 @@
 	     A close-up of that cottage.  Adorable.  Brings back memories.
 	     })
 
+; @jesscxc(ty21.9.11.19.44.00pzm4d6s)
+; comment out some 'statues' so it's safer-for-work for livestreamers to show
+#|
        (cons img:penis1.jpg 
 	     @p{
 	     A magestic statue of a golden penis, sculpted lovingly in an ancient version of Blender by my girlfriend at the time. 
@@ -63,14 +66,16 @@
        (cons img:penis4.jpg 
 	     @p{
 	     Penis and snow. *shiver*
-	     }))
+	     })
+#|
+       )
 
     @p{Alas, like Icarus flying too close to the sun, we weren't able to complete
     the game.  Our wings (our feeble undergraduate-level skills) were too weak.
     And the sun was too hot: Creating a game is hard, creating programming environments
     is hard, and creating a seamless experience between the two is hard.}
 
-    @p{I'm sad to say that we gave up shortly after enabling users to spawn penises.}
+    @p{I'm sad to say that we gave up shortly after enabling users to spawn statues.}
 
     @h4{Chapter 1: The Research Prototype}
 
