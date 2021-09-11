@@ -3,14 +3,14 @@
 (require "./lang.rkt")
 
 
-(define-post 
+(define-post
   2020-08-07
   "The CodeSpells Story (with Pictures!)"
   @div{
-    The CodeSpells story began more than 10 years ago.  What happened?  And what's coming? 
+    The CodeSpells story began more than 10 years ago.  What happened?  And what's coming?
   }
   @div{
-    
+
     @h4{Chapter 0: The Undergraduate Prototype}
 
     @p{I was a junior at @a[href: "https://southwestern.edu"]{Southwestern University}
@@ -20,9 +20,9 @@
 
     @p{
     Given that Nomic is a game about making up new rules while you play the game,
-    it was natural for us to conjecture that it should be possible to create a 
-    computer game that you reprogram as you play. 
-    We went on to build an early prototype of this game using 
+    it was natural for us to conjecture that it should be possible to create a
+    computer game that you reprogram as you play.
+    We went on to build an early prototype of this game using
     @a[href: "https://jmonkeyengine.org/"]{JMonkeyEngine} -- which appealed to us
     because Java was the one language we all knew.
     }
@@ -31,52 +31,57 @@
     my Facebook circa 2007.
 
     @(image-grid
-       (cons img:village.jpg 
-	     @p{
-	     A village with assets created by my girlfriend at the time, Whitney Johnson.})
+       (cons img:village.jpg
+             @p{
+             A village with assets created by my girlfriend at the time, Whitney Johnson.})
 
-       (cons img:fish-on-a-mountain.jpg 
-	     @p{
-	     A fish flopping on a mountain, for no particular reason that I can recall.
-	     })
+       (cons img:fish-on-a-mountain.jpg
+             @p{
+             A fish flopping on a mountain, for no particular reason that I can recall.
+             })
 
-       (cons img:cottage-close-up.jpg 
-	     @p{
-	     A close-up of that cottage.  Adorable.  Brings back memories.
-	     })
+       (cons img:cottage-close-up.jpg
+             @p{
+             A close-up of that cottage.  Adorable.  Brings back memories.
+             })
 
-       (cons img:penis1.jpg 
-	     @p{
-	     A magestic statue of a golden penis, sculpted lovingly in an ancient version of Blender by my girlfriend at the time. 
-	     })
+; @jesscxc(ty21.9.11.19.44.00pzm4d6s)
+; comment out some 'statues' so it's safer-for-work for livestreamers to show
+#|
+       (cons img:penis1.jpg
+             @p{
+             A magestic statue of a golden penis, sculpted lovingly in an ancient version of Blender by my girlfriend at the time.
+             })
 
-       (cons img:penis2.jpg 
-	     @p{
-	     The same statue, looking small from far away.  Valley for scale.
-	     })
+       (cons img:penis2.jpg
+             @p{
+             The same statue, looking small from far away.  Valley for scale.
+             })
 
-       (cons img:penis3.jpg 
-	     @p{
-	     Penis and sunrise.  Need I remind you we were undergrads?
-	     })
+       (cons img:penis3.jpg
+             @p{
+             Penis and sunrise.  Need I remind you we were undergrads?
+             })
 
-       (cons img:penis4.jpg 
-	     @p{
-	     Penis and snow. *shiver*
-	     }))
+       (cons img:penis4.jpg
+             @p{
+             Penis and snow. *shiver*
+             })
+#|
+       )
 
     @p{Alas, like Icarus flying too close to the sun, we weren't able to complete
     the game.  Our wings (our feeble undergraduate-level skills) were too weak.
     And the sun was too hot: Creating a game is hard, creating programming environments
     is hard, and creating a seamless experience between the two is hard.}
 
-    @p{I'm sad to say that we gave up shortly after enabling users to spawn penises.}
+    @p{I'm sad to say that we gave up shortly after enabling users to spawn statues.}
 
     @h4{Chapter 1: The Research Prototype}
 
-    @p{About 6 years later, in graduate school, I was doing my Ph.D. research at the 
-    University of California, San Diego.  My labmate Sarah Esper (now Sarah Guthals) 
-    and I were discussing educational coding environments.  The idea of 
+    @p{About 6 years later, in graduate school, I was doing my Ph.D. research at the
+    University of California, San Diego.  My labmate Sarah Esper (now Sarah Guthals)
+    and I were discussing educational coding environments.  The idea of
     programmable games resurfaced.  We both agreed that the metaphor of magic
     was a compelling one.  And so, CodeSpells was born.}
 
@@ -89,28 +94,27 @@
     starving grad student, I opted for the most gnome-like thing I could find that happened to be free.  The results were aesthetically questionable.}
 
     @(image-grid
-       (cons img:gnome-red.png 
-	     @p{
-	     A creepy gnome.  It cost me nothing.  The nightmares came for free.
-	     })
+       (cons img:gnome-red.png
+             @p{
+             A creepy gnome.  It cost me nothing.  The nightmares came for free.
+             })
 
-       (cons img:gnome-water.jpg 
-	     @p{
-	     Here's one that watches you while you swim in the pond.
-	     })
+       (cons img:gnome-water.jpg
+             @p{
+             Here's one that watches you while you swim in the pond.
+             })
 
-       (cons img:gnome-injured.jpg 
-	     @p{
-	     Here's one with bandaids on its face.  Don't let it distract you from the spell inventory and minimap on the right.
-	     })  
+       (cons img:gnome-injured.jpg
+             @p{
+             Here's one with bandaids on its face.  Don't let it distract you from the spell inventory and minimap on the right.
+             })
 
+       (cons img:gnome-village.png
+             @p{
+             Oh, and here's the gnome village.  Notice the familiar cottages which I ported from my undergraduate prototype.
+             }))
 
-       (cons img:gnome-village.png 
-	     @p{
-	     Oh, and here's the gnome village.  Notice the familiar cottages which I ported from my undergraduate prototype.
-	     }))
-
-    @p{The coding runtime was the Java runtime, 
+    @p{The coding runtime was the Java runtime,
     so the natural thing to do was to have player code in the Java language.  We justified this in our research papers
     by saying that "Java is an industry standard language."  But I wasn't convinced then, nor am I now.}
 
@@ -118,14 +122,14 @@
     the syntax of a well-known programming language.  Why do the people of this fantasy world write their spells in Java?
     Did Sun Microsystems invent magic?  Tolkien would not have approved of our lackluster worldbuilding.}
 
-    @p{The one thing I @i{did} like was that the in-game documentation took the form of a spellbook out of which you could 
+    @p{The one thing I @i{did} like was that the in-game documentation took the form of a spellbook out of which you could
     copy spells and edit them in game.}
-    
+
     @side-note{
       @h5{(soap box)}
       @(hr)
 
-      I've always felt that too much time gets spent "making coding fun."  @b{We should be making documentation fun instead.}}  
+      I've always felt that too much time gets spent "making coding fun."  @b{We should be making documentation fun instead.}}
 
     @p{Not to toot my own horn, but these docs do look a lot more fun than anything I've come across in the professional world.  (You agree; admit it!)}
 
@@ -139,43 +143,43 @@
     @p{I contacted my long-time friend, Adrian Lopez-Mobilia, who had worked with me on the undergrad prototype (the one with the penises).
     In the intervening years, he had become a skilled indie game developer.  He brought his long-time friend and environment artist, Jason Rosenstock.  }
 
-    @p{The three of us built yet another CodeSpells prototype from the ground up -- this time in Unity3D.  We decided the spells would be written not with Java, 
-    but with JavaScript, and that we would use Blockly to give the player less of a "Umm, why are spells crafted with the same language as websites?" experience. 
+    @p{The three of us built yet another CodeSpells prototype from the ground up -- this time in Unity3D.  We decided the spells would be written not with Java,
+    but with JavaScript, and that we would use Blockly to give the player less of a "Umm, why are spells crafted with the same language as websites?" experience.
     It sort of worked.  Blockly does have more of a mystical "mouthfeel" than Java or JavaScript.  Tolkien still would have hated it -- a thought that keeps me up at night to this day -- and which I want to fix in the next iteration of CodeSpells.}
 
     @p{We used this prototype to create a compelling Kickstarter campaign and received $164,000 in funding.  After subtracting Kickstarter's 5% fee and the 5% payment processing fee, this was sufficient to support 4 people (2 developers, 1 artist, and 1 marketing / social media person) for 2 years. (I know $164K sounds like a lot, but I'll let you do the math to figure out whether any of us were making anywhere near a living wage.)}
 
     @(image-grid
-       (cons img:air-wizard.jpg 
-	     @p{A wizard summoning a storm.}) 
+       (cons img:air-wizard.jpg
+             @p{A wizard summoning a storm.})
        (cons img:big-creatures.jpg
-	     @p{
-	       Epic creatures.  For a while I had a full-sized poster of this hanging in my bedroom.
-	     })
+             @p{
+               Epic creatures.  For a while I had a full-sized poster of this hanging in my bedroom.
+             })
        (cons img:cool-arch.png
-	     @p{
-               Jason was obsessed with rocks and architecture, which shows through in-game. 
-	     })
+             @p{
+               Jason was obsessed with rocks and architecture, which shows through in-game.
+             })
        (cons img:dust-mote.png
-	     @p{
+             @p{
                This was a concept for a wizard "home base" -- a small haven where you go when you're not exploring procedurally generated worlds.
-	     })
+             })
        (cons img:night-time-wizard.png
-	     @p{
+             @p{
                Wizards at night.  The day/night cycle in the game is one of the most magical parts of the whole experience.
-	     })
+             })
        (cons img:three-wizards.png
-	     @p{
+             @p{
                Three wizards crafting spells upon a cliff.
-	     })
+             })
        (cons img:wizard-with-croaker.png
-	     @p{
-	       A wizard with a pet croaker.   
-	     })
+             @p{
+               A wizard with a pet croaker.
+             })
        (cons img:wolf-crows.png
-	     @p{
-	       An unimplemented concept piece for a symbiotic "creature system" that was part-wolf, part-crow. 
-	     }))
+             @p{
+               An unimplemented concept piece for a symbiotic "creature system" that was part-wolf, part-crow.
+             }))
 
     @p{The game had some initial success on Steam, but it was short lived.}
 
@@ -194,41 +198,41 @@
 
     @(image-grid
        (cons img:in-game1.jpg
-	     @p{
-	       Wizard with a Croaker. 
-	     })
+             @p{
+               Wizard with a Croaker.
+             })
        (cons img:in-game2.jpg
-	     @p{
-	       A wizard in front of a "Wizard Soccer" goal (part of the multiplayer experience).
-	     })
+             @p{
+               A wizard in front of a "Wizard Soccer" goal (part of the multiplayer experience).
+             })
        (cons img:in-game3.jpg
-	     @p{
-	       A wizard traversing the procedural world and coming upon one of the many strange artifacts left over from a previous civilization.
-	     })
+             @p{
+               A wizard traversing the procedural world and coming upon one of the many strange artifacts left over from a previous civilization.
+             })
        (cons img:in-game4.jpg
-	     @p{
-	       A wizard at dawn.  
-	     })
+             @p{
+               A wizard at dawn.
+             })
        (cons img:in-game5.webp
-	     @p{
-	       A wizard at dusk.
-	     })
+             @p{
+               A wizard at dusk.
+             })
        (cons img:in-game-coding1.jpg
-	     @p{
-	       A spell written in Blockly.
-	     })
+             @p{
+               A spell written in Blockly.
+             })
        (cons img:in-game-coding2.gif
-	     @p{
-	       A spell being constructed in Blockly.
-	     }))
+             @p{
+               A spell being constructed in Blockly.
+             }))
 
     @p{As for me, I run a company called @a[href: "https://thoughtstem.com"]{ThoughtSTEM} with a non-profit branch called @a[href: "https://metacoders.org"]{MetaCoders}.  We have many other products (e.g. @a[href: "https://www.learntomod.com"]{LearnToMod}, @a[href: "https://metacoders.org/online"]{coding after-school programs and summer camps}). Of all of them, CodeSpells has paradoxically:
         @(ol
-	   @li{always had the highest cool-factor,}
-	   @li{always been on the cutting edge of coding environments, coding education, and codable games, yet}
+           @li{always had the highest cool-factor,}
+           @li{always been on the cutting edge of coding environments, coding education, and codable games, yet}
            @li{always generated the smallest revenue})}
 
-    @p{Since circa 2018, I've had almost no resources to put into further development.  I've received thousands of emails over the years, asking if there will ever be movement on the project.  I've always responded with something vague, like: "Yes. I think so. Someday."} 
+    @p{Since circa 2018, I've had almost no resources to put into further development.  I've received thousands of emails over the years, asking if there will ever be movement on the project.  I've always responded with something vague, like: "Yes. I think so. Someday."}
 
     @p{And then... there was COVID-19.}
 
@@ -238,7 +242,7 @@
     CodeSpells is back.  A project 13 years in the making.}
 
     @h4{Chapter 3: The Post-Pandemic CodeSpells}
-  
+
     @p{Stay tuned...}
 
     @p{- Stephen R. Foster}
